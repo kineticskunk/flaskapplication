@@ -5,7 +5,7 @@ from src.flaskbasic.form import StudentForm
 from src.flaskbasic.models import Student
 import sys
 import logging
-
+H1
 # logging.basicConfig(filename='app.log', filemode='w', format='%(asctime)s - %(levelname)s - %(message)s',datefmt='%d-%b-%y %H:%M:%S')
 _logger_adding = logging.getLogger('Adding results')
 _logger_getting = logging.getLogger('Get results')
