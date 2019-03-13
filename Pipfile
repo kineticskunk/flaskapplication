@@ -1,0 +1,31 @@
+[[source]]
+name = "pypi"
+url = "https://pypi.org/simple"
+verify_ssl = true
+
+[dev-packages]
+
+[packages]
+pipenv = "*"
+gunicorn = "*"
+itsdangerous = "*"
+pytest = "*"
+flask-marshmallow = "*"
+marshmallow-sqlalchemy = "*"
+SQLAlchemy = "*"
+Flask-WTF = "*"
+Flask-Bcrypt = "*"
+Flask-Login = "*"
+Pillow = "*"
+Flask-Mail = "*"
+Flask = "*"
+Flask-Testing = "*"
+Jinja2 = "*"
+MarkupSafe = "*"
+Flask-SQLAlchemy = "*"
+Werkzeug = "*"
+pytest-cov = "*"
+coverage = "*"
+
+[requires]
+python_version = "3.7"

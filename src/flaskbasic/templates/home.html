@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="../static/style.css"/>
+    <!-- <script src="main.js"></script> -->
+</head>
+<body style="background-color: #95a5a6;position: absolute;top: 50%;left: 50%;width: 500px;height: 500px;margin-top: -250px;margin-left: -250px;">
+        <div align="">
+   <div class="container" style="margin-bottom: : -150%;">
+      <form method="POST" action="">
+          {{ form.hidden_tag() }}
+          <fieldset class="">
+              <h1> Student Result System </h1>
+              <div class="">
+                  {{ form.name.label(class="form-control-label") }}
+
+                  {% if form.name.errors %}
+                      {{ form.name(class="form-control form-control-lg is-invalid") }}
+                      <div class="">
+                          {% for error in form.name.errors %}
+                              <span>{{ error }}</span>
+                          {% endfor %}
+                      </div>
+                  {% else %}
+                      {{ form.name(class="form-control form-control-lg") }}
+                  {% endif %}
+              </div>
+              <div class="">
+                  {{ form.physics.label(class="form-control-label") }}
+                  {% if form.physics.errors %}
+                      {{ form.physics(class="form-control form-control-lg is-invalid") }}
+                      <div class="">
+                          {% for error in form.physics.errors %}
+                              <span>{{ error }}</span>
+                          {% endfor %}
+                      </div>
+                  {% else %}
+                      {{ form.physics(class="form-control form-control-lg") }}
+                  {% endif %}
+              </div>
+              <div class="">
+                  {{ form.maths.label(class="form-control-label") }}
+                  {% if form.maths.errors %}
+                      {{ form.maths(class="form-control form-control-lg is-invalid") }}
+                      <div class="">
+                          {% for error in form.maths.errors %}
+                              <span>{{ error }}</span>
+                          {% endfor %}
+                      </div>
+                  {% else %}
+                      {{ form.maths(class="form-control form-control-lg") }}
+                  {% endif %}
+              </div>
+              <div class="">
+                  {{ form.chemistry.label(class="form-control-label") }}
+                  {% if form.chemistry.errors %}
+                      {{ form.chemistry(class="form-control form-control-lg is-invalid") }}
+                      <div class="">
+                          {% for error in form.chemistry.errors %}
+                              <span>{{ error }}</span>
+                          {% endfor %}
+                      </div>
+                  {% else %}
+                      {{ form.chemistry(class="form-control form-control-lg") }}
+                  {% endif %}
+              </div>
+          </fieldset>
+          <div class="">
+              {{ form.submit(class="btn btn-outline-info") }}
+          </div>
+      </form>
+      <h3><a href="/results">VIEW RESULTS</a></h3>
+  </div>
+</body>
+</html>
