@@ -83,6 +83,17 @@ def delete_post(student_id):
     return redirect(url_for('get_results'))
 
 
+@app.route('/login', methods=['POST'])
+def do_admin_login():
+    if request.form['password'] == 'password' and request.form['username'] == 'admin':
+        session['logged_in'] = True
+    else:
+        flash('wrong password!')
+     return redirect(url_for('login'))
+
+ 
+
+
 @application.route('/results/<int:indexId>', methods=['DELETE'])
 def delete_student(indexId):
   _logger_delete.warning("Inside Delete function")
