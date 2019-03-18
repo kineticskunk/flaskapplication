@@ -43,4 +43,6 @@ class Functions():
       def resetResults():
           db.drop_all()
 			
+      def register(username,email,password):
+
 	

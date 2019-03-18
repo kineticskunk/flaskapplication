@@ -98,10 +98,39 @@ def delete_student(indexId):
 
   return jsonify({'message':'Student found and Deleted'})
 
-@application.route('/login', methods=('GET', 'POST'))
-@application.route('/signup', methods=('GET', 'POST'))
-def signup():
+# @application.route('/login', methods=['GET', 'POST'])
+# def login():
+#     form = LoginForm()
+#     if form.validate_on_submit():
+#         username =
 
+
+
+
+
+#  @app.route('/login/', methods=('GET', 'POST'))
+# def login():
+#     '''
+#         App for creating Login page
+#     '''
+#     form = LoginForm()
+#     if form.validate_on_submit():
+#         username = request.form['username']
+#         password = functions.generate_password_hash(request.form['password'])
+#         user_id = functions.check_user_exists(username, password)
+#         if user_id:
+#             session['username'] = username
+#             session['id'] = user_id
+#             functions.store_last_login(session['id'])
+#             return redirect('/profile/')
+#         else:
+#             flash('Username/Password Incorrect!')
+#     return render_template('login.html', form=form)
+
+
+
+@application.route('/signup', methods=['GET', 'POST'])
+def signup():
     form = SignUpForm()
     if form.validate_on_submit():
         username = request.form['username']
@@ -123,23 +152,3 @@ def signup():
 
 
 
-# @app.route('/signup/', methods=('GET', 'POST'))
-# def signup():
-#     '''
-#         App for registering new user
-#     '''
-#     form = SignUpForm()
-#     if form.validate_on_submit():
-#         username = request.form['username']
-#         password = functions.generate_password_hash(request.form['password'])
-#         email = request.form['email']
-#         check = functions.check_username(username)
-#         if check:
-#             flash('Username already taken!')
-#         else:
-#             functions.signup_user(username, password, email)
-#             session['username'] = username
-#             user_id = functions.check_user_exists(username, password)
-#             session['id'] = user_id
-#             return redirect('/profile/')
-#     return render_template('signup.html', form=form)
