@@ -6,6 +6,7 @@ omit = */__init__.py/*
  */ logger.py/*
   */skeleton.py/*
 
+
 [paths]
 source =
     src/
