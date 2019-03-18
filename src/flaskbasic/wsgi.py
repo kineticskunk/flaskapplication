@@ -98,7 +98,48 @@ def delete_student(indexId):
 
   return jsonify({'message':'Student found and Deleted'})
 
+@application.route('/login', methods=('GET', 'POST'))
+@application.route('/signup', methods=('GET', 'POST'))
+def signup():
+
+    form = SignUpForm()
+    if form.validate_on_submit():
+        username = request.form['username']
+        password = functions.generate_password_hash(request.form['password'])
+        email = request.form['email']
+        check = functions.check_username(username)
+        if check:
+                flash('username already taken!')
+        else:
+            functions.signup_user(username, password, email)
+            session['username'] = username
+            user_id = functions.check_user_exists(username, password)
+            session['id'] = user_id
+            return redirect('/login')
+    return render_template('sign.html', form=form)
 
 
 
 
+
+
+# @app.route('/signup/', methods=('GET', 'POST'))
+# def signup():
+#     '''
+#         App for registering new user
+#     '''
+#     form = SignUpForm()
+#     if form.validate_on_submit():
+#         username = request.form['username']
+#         password = functions.generate_password_hash(request.form['password'])
+#         email = request.form['email']
+#         check = functions.check_username(username)
+#         if check:
+#             flash('Username already taken!')
+#         else:
+#             functions.signup_user(username, password, email)
+#             session['username'] = username
+#             user_id = functions.check_user_exists(username, password)
+#             session['id'] = user_id
+#             return redirect('/profile/')
+#     return render_template('signup.html', form=form)

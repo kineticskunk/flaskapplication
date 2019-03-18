@@ -15,3 +15,7 @@ class StudentForm(FlaskForm):
 
 
 # IntegerField('Telephone', [validators.NumberRange(min=0, max=10)])
+
+
+
+      
