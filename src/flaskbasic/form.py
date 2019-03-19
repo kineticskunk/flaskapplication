@@ -2,6 +2,13 @@ from flask_wtf import FlaskForm
 from wtforms import StringField, IntegerField, SubmitField
 from wtforms.validators import DataRequired, Length 
 
+
+
+class SignUp(FlaskForm):
+    username = StringField('username', validators=[DataRequired()])
+    newPassword = StringField('password', validator=[DataRequired()])
+
+
 class StudentForm(FlaskForm):
     name = StringField('Name', validators=[DataRequired()])
 

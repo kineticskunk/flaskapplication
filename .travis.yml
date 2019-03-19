@@ -11,6 +11,7 @@ install:
   - pipenv install
 
 script:
-  - python setup.py test
+  - py.test  --cov-report term --cov=flaskapplication/test/
 
-
+after_success:
+    - codecov
