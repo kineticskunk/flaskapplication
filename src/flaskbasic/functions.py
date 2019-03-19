@@ -46,13 +46,13 @@ class Functions():
       def login(username,password):
         if form.validate_on_submit():
         username = request.form['username']
-        password = functions.generate_password_hash(request.form['password'])
-        user_id = functions.check_user_exists(username, password)
+        password = Auth.generate_password_hash(request.form['password'])
+        user_id = Auth.check_user_exists(username, password)
 
 
 	def signup(username,email,password):
         if form.validate_on_submit():
         username = request.form['username']
-        password = functions.generate_password_hash(request.form['password'])
+        password = Auth.generate_password_hash(request.form['password'])
         email = request.form['email']
-        check = functions.check_username(username)
+        check = Auth.check_username(username)
