@@ -43,16 +43,16 @@ class Functions():
       def resetResults():
           db.drop_all()
 			
-      def login(username,password):
+      def login(username, password ):
         if form.validate_on_submit():
-        username = request.form['username']
-        password = Auth.generate_password_hash(request.form['password'])
-        user_id = Auth.check_user_exists(username, password)
+         username = request.form['username']
+         assword = Auth.generate_password_hash(request.form['password'])
+         user_id = Auth.check_user_exists(username, password)
 
-
-	def signup(username,email,password):
-        if form.validate_on_submit():
-        username = request.form['username']
-        password = Auth.generate_password_hash(request.form['password'])
-        email = request.form['email']
-        check = Auth.check_username(username)
+      def signup(username, email, password):
+            if form.validate_on_submit():
+             username = request.form['username']
+             password = Auth.generate_password_hash(request.form['password'])
+             email = request.form['email']
+             check = Auth.check_username(username)
+          
