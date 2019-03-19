@@ -43,7 +43,7 @@ class Functions():
       def resetResults():
           db.drop_all()
 			
-      def login():
+      def login(username,password):
         if form.validate_on_submit():
         username = request.form['username']
         password = functions.generate_password_hash(request.form['password'])
