@@ -4,6 +4,7 @@ from flask import Flask,render_template, redirect, url_for,request, jsonify, abo
 from flask_sqlalchemy import SQLAlchemy
 from src.flaskbasic import *
 from src.flaskbasic.form import StudentForm
+from src.flaskbasic.form import SignUp
 from src.flaskbasic.models import Student
 import sys
 import logging
@@ -108,6 +109,33 @@ def delete_student(indexId):
   db.session.commit()
 
   return jsonify({'message':'Student found and Deleted'})
+
+
+@application.route('/signup', methods=['GET', 'POST'])
+def signup():
+  form = SignUp()
+
+  return render_template('signup.html', form=form)
+
+# allow admin to login
+# @application.route('/login', methods=['GET', 'POST'])
+# def login():
+#     form = Login()
+#         # if user_id:
+#         #      session['username'] = username
+#         #      session['id'] = user_id
+#         #      functions.store_last_login(session['id'])
+#         #      return redirect('/results')
+#         # else:
+#         #      flash('username/Password incorrect')
+
+#     return render_template('login.html', form=form)
+
+
+
+#register a person
+
+
 
 
 
