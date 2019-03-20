@@ -10,6 +10,7 @@ sys.path.insert(0, myPath + '/src/flaskbasic')
 # instant
 fun = Functions
 # test student name
+
 def test_student_name():
     assert fun.readName('Lwando',1) == 'Lwando'
     assert fun.readName('Zukisa',2) == 'Zukisa'
