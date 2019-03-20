@@ -1,6 +1,5 @@
-<<<<<<< HEAD
+
 from flask import Flask,render_template, redirect, url_for,request, jsonify, abort,request, flash
-=======
 # Referencing the modules
 
 from flask import Flask,render_template, redirect, url_for,request, jsonify, abort,request
