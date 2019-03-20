@@ -1,12 +1,14 @@
 # Referencing the modules
-
 import pytest
-import Functions
-
-import __init__
-
+from flaskbasic.functions import Functions
 # instant
 fun = Functions
+
+#test created user
+# def test_new_users(username, email, newpassword, confirm):
+#     assert fun.signup('amanda', 'amanda@gmail.com', 12345, 12345) == ('amanda', 'amanda@gmail.com', 12345, 12345)
+#     # assert fun.signup('ludwe', 'ludwe@kineticskunk.com ', 1234, 1234) == ('ludwe', 'ludwe@kineticskunk.com ', 1234, 1234)
+
 # test student name
 def test_student_name():
     assert fun.readName('Zukisa',2) == 'Zukisa'
