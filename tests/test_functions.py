@@ -29,6 +29,7 @@ def test_all_results():
     assert fun.readResults(2,'Zukisa',10, 60, 5) == (2,'Zukisa',10, 60, 5)
     assert fun.readResults(3,'ludwe',32, 12, 22) == (3,'ludwe',32, 12, 22)
 
+
 def test_admin_name(admin_id,username):
     assert fun.signup('Nzulu',1) == 'Nzulu'
 

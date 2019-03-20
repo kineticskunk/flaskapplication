@@ -1,10 +1,6 @@
-<<<<<<< HEAD
-from flask import Flask,render_template, redirect, url_for,request, jsonify, abort,request, flash
-=======
 # Referencing the modules
 
 from flask import Flask,render_template, redirect, url_for,request, jsonify, abort,request
->>>>>>> ac87f7ff9d37d6739390fd61a1e6818d46f5af18
 from flask_sqlalchemy import SQLAlchemy
 from src.flaskbasic import *
 from src.flaskbasic.form import StudentForm
