@@ -9,6 +9,8 @@ env:
 
 install:
   - pipenv install
+  - pipenv install codecov pytest-cov hypothesis
+
 
 script:
   - pytest
