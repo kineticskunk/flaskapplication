@@ -12,7 +12,7 @@ install:
 
 
 script:
- py.test --cov=tests
+ - py.test --cov=tests
 
 # notifications:
 #   email:
