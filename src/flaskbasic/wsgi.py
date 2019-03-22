@@ -1,10 +1,4 @@
-<<<<<<< HEAD
-from flask import Flask,render_template, redirect, url_for,request, jsonify, abort,request, flash
-=======
-# Referencing the modules
-
 from flask import Flask,render_template, redirect, url_for,request, jsonify, abort,request
->>>>>>> ac87f7ff9d37d6739390fd61a1e6818d46f5af18
 from flask_sqlalchemy import SQLAlchemy
 from src.flaskbasic import *
 from src.flaskbasic.form import StudentForm
@@ -107,7 +101,7 @@ def delete_student(indexId):
 @application.route('/login', methods=['GET', 'POST'])
 def login():
     form = LoginForm()
-   
+
         # if user_id:
         #      session['username'] = username
         #      session['id'] = user_id
@@ -125,7 +119,7 @@ def login():
 @application.route('/signup', methods=['GET', 'POST'])
 def signup():
     form = SignUpForm()
-   
+
         # if check:
         #         flash('username already taken!')
         # else:
@@ -135,9 +129,3 @@ def signup():
         #     session['id'] = user_id
     return redirect('/login')
     return render_template('signup.html', form=form)
-
-
-
-
-
-
