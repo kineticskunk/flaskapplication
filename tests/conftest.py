@@ -45,8 +45,7 @@ def init_database():
     # Insert user data
     student1 = Student('Lwando', 10, 20, 30)
     student2 = Student('Lihle', 100, 200, 300)
-    # user1 = User(email='patkennedy79@gmail.com', plaintext_password='FlaskIsAwesome')
-    # user2 = User(email='kennedyfamilyrecipes@gmail.com', plaintext_password='PaSsWoRd')
+    
     db.session.add(student1)
     db.session.add(student2)
 
