@@ -2,7 +2,7 @@
 import os
 import sys
 import pytest
-import src.flaskbasic as fb
+import src.flaskbasic.functions as fun
 # instant
 
 #test created user
@@ -12,8 +12,8 @@ import src.flaskbasic as fb
 
 # test student name
 def test_student_name():
-    assert fb.readName('Zukisa',2) == 'Zukisa'
-    assert fb.readName('ludwe',3) == 'ludwe'
+    assert fun.readName('Zukisa',2) == 'Zukisa'
+    assert fun.readName('ludwe',3) == 'ludwe'
 
 # test delete student function
 
