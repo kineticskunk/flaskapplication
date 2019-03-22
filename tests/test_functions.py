@@ -4,7 +4,7 @@ import sys
 import pytest
 import src.flaskbasic.functions as fun
 # instant
-
+fun = fun
 #test created user
 # def test_new_users(username, email, newpassword, confirm):
 #     assert fun.signup('amanda', 'amanda@gmail.com', 12345, 12345) == ('amanda', 'amanda@gmail.com', 12345, 12345)
