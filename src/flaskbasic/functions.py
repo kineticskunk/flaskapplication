@@ -33,6 +33,7 @@ class Functions():
       def readData():
             results = Student.query.all()
             return results
+
       # get the learner in  the database by Id 
       def readName(learner,student_id):
             studentname = Student.query.filter_by(name=learner, id=student_id).all()
@@ -40,12 +41,10 @@ class Functions():
                   return student_name.name
 
       #  read data by all the attributes
-
       def readResults(student_id,learner,physcalS, mathematics, chem ):
             studentname = Student.query.filter_by(id=student_id, name=learner, physics=physcalS, maths= mathematics, chemistry=chem     ).all()
             for student_name in studentname:
                   return student_name.id,student_name.name,student_name.physics,student_name.maths,student_name.chemistry
-
 
       # delete the data in the database by id
       def delete(student_id):

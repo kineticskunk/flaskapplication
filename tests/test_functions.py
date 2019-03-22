@@ -1,8 +1,9 @@
 # Referencing the modules
+import os
+import sys
 import pytest
-from flaskbasic.functions import Functions
+import src.flaskbasic as fb
 # instant
-fun = Functions
 
 #test created user
 # def test_new_users(username, email, newpassword, confirm):
@@ -11,8 +12,8 @@ fun = Functions
 
 # test student name
 def test_student_name():
-    assert fun.readName('Zukisa',2) == 'Zukisa'
-    assert fun.readName('ludwe',3) == 'ludwe'
+    assert fb.readName('Zukisa',2) == 'Zukisa'
+    assert fb.readName('ludwe',3) == 'ludwe'
 
 # test delete student function
 
