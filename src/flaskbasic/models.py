@@ -24,13 +24,13 @@ class Student(db.Model):
         return str(self.name)
 
     def get_physics(self):
-       return (self.physics)
+       return int(self.physics)
 
     def get_maths(self):
-        return str(self.maths)
+        return int(self.maths)
 
     def get_chemistry(self):
-        return str(self.chemistry)
+        return int(self.chemistry)
 
     def __repr__(self):
         return "Student('{self.id}', '{self.name}',{self.physics}',{self.maths}',{self.chemistry}')"
