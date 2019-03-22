@@ -18,7 +18,8 @@ class Auth(db.Model):
    id = db.Column(db.Integer, primary_key=True)
    username = db.Column(db.VARCHAR)
    email = db.Column(db.VARCHAR)
-   password =db.Column(db.VARCHAR)
+   newpassword = db.Column(db.VARCHAR) 
+   confirmpassword = db.Column(db.VARCHAR)
 
    def __repr__(self):
     return "Auth('{self.id}','{self.username}','{self.email}','{self.password}')"
