@@ -1,6 +1,6 @@
 # Referencing the modules
 
-from flask import Flask,render_template, redirect, url_for,request, jsonify, abort,request,flash
+from flask import Flask,render_template, redirect, url_for,request, jsonify, abort,request
 from flask_sqlalchemy import SQLAlchemy
 from src.flaskbasic import *
 from src.flaskbasic.form import StudentForm
@@ -22,9 +22,8 @@ _logger_delete = logging.getLogger('Delete results')
 @application.route('/', methods=['GET', 'POST'])
 def signup():
   form = SignUp()
-  # if request.method == 'POST':
-    # return redirect(url_for('student', form=form))
-  
+  if request.method == 'POST' and form.validate_on_submit():
+    return redirect(url_for('add_results',form=form))
   return render_template('signup.html', form=form)
 # add student marks
 @application.route('/student', methods=['GET','POST'])

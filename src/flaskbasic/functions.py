@@ -11,10 +11,10 @@ import os
 class Functions():
 
       def signup(username, email, newpassword, confirm):
-      #   form = Auth()
-      #   signin = Auth(username=form.username.data, email=form.email.data, newpassword=form.password.data, confirm=form.confirmpassword.data)
-      #   db.session.create(signin)
-      #   db.session.commit()
+        form = SignUp()
+        signin = Auth(username=form.username.data, email=form.email.data, newpassword=form.password.data, confirm=form.confirmpassword.data)
+        db.session.create(signin)
+        db.session.commit()
 
       def login(email,password):
         form = Login()
