@@ -1,6 +1,4 @@
-# Referencing the modules
-
-from flask import Flask,render_template, redirect, url_for,request, jsonify, abort,request
+from flask import Flask,render_template, redirect, url_for,request, jsonify, abort,request,flash
 from flask_sqlalchemy import SQLAlchemy
 from src.flaskbasic import *
 from src.flaskbasic.form import StudentForm
@@ -63,6 +61,7 @@ def update_results(student_id):
     student_data.maths = form.maths.data
     student_data.chemistry = form.chemistry.data
     db.session.commit()
+    flash('Your results were successfully Updated')
     return redirect(url_for('edit_student', student_id=student_data.id))
   elif request.method == 'GET':
     form.name.data = student_data.name
@@ -98,7 +97,35 @@ def delete_student(indexId):
 
   return jsonify({'message':'Student found and Deleted'})
 
+# allow admin to login
+@application.route('/login', methods=['GET', 'POST'])
+def login():
+    form = LoginForm()
+
+        # if user_id:
+        #      session['username'] = username
+        #      session['id'] = user_id
+        #      functions.store_last_login(session['id'])
+        #      return redirect('/results')
+        # else:
+        #      flash('username/Password incorrect')
+
+    return render_template('login.html', form=form)
 
 
 
+#register a person
 
+@application.route('/signup', methods=['GET', 'POST'])
+def signup():
+    form = SignUpForm()
+
+        # if check:
+        #         flash('username already taken!')
+        # else:
+        #     functions.signup_user(username, password, email)
+        #     session['username'] = username
+        #     user_id = functions.check_user_exists(username, password)
+        #     session['id'] = user_id
+    return redirect('/login')
+    return render_template('signup.html', form=form)

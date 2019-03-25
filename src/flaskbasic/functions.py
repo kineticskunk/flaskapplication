@@ -19,7 +19,7 @@ class Functions():
       def readData():
             results = Student.query.all()
             return results
-      # get the learner in  the database by Id 
+      # get the learner in  the database by Id
       def readName(learner,student_id):
             studentname = Student.query.filter_by(name=learner, id=student_id).all()
             for student_name in studentname:
@@ -37,10 +37,22 @@ class Functions():
       def delete(student_id):
             student_results = Student.query.get_or_404(student_id)
             db.session.delete(student_results)
-            db.session.commit() 
+            db.session.commit()
 
       # delete all the data in the database
       def resetResults():
           db.drop_all()
-			
-	
+
+    #   def login(username,password):
+    #     if form.validate_on_submit():
+    #         username = request.form['username']
+    #         password = functions.generate_password_hash(request.form['password'])
+    #         user_id = functions.check_user_exists(username, password)
+    #
+    #
+	# def signup(username,email,password):
+    #     if form.validate_on_submit():
+    #     username = request.form['username']
+    #     password = functions.generate_password_hash(request.form['password'])
+    #     email = request.form['email']
+    #     check = functions.check_username(username)
