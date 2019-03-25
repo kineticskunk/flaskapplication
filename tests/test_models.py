@@ -1,7 +1,4 @@
-
-
-
-
+from src.flaskbasic import models
 def test_new_student(new_student):
     """
     GIVEN a Student model
