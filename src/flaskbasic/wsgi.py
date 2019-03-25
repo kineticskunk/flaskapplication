@@ -1,9 +1,11 @@
 # Referencing the modules
 
-from flask import Flask,render_template, redirect, url_for,request, jsonify, abort,request
+from flask import Flask,render_template, redirect, url_for,request, jsonify, abort,request,flash
 from flask_sqlalchemy import SQLAlchemy
 from src.flaskbasic import *
 from src.flaskbasic.form import StudentForm
+from src.flaskbasic.form import SignUp
+from src.flaskbasic.form import Login
 from src.flaskbasic.models import Student
 import sys
 import logging
@@ -17,7 +19,15 @@ _logger_delete = logging.getLogger('Delete results')
 
 # route that renders when the page loads
 
-@application.route('/', methods=['GET','POST'])
+@application.route('/', methods=['GET', 'POST'])
+def signup():
+  form = SignUp()
+  # if request.method == 'POST':
+    # return redirect(url_for('student', form=form))
+  
+  return render_template('signup.html', form=form)
+# add student marks
+@application.route('/student', methods=['GET','POST'])
 def add_results():
     form = StudentForm()
     _logger_adding.warning("Inside Add Results function")
@@ -84,6 +94,14 @@ def delete_post(student_id):
     return redirect(url_for('get_results'))
 
 
+@application.route('/login', methods=['GET', 'POST'])
+def do_admin_login():
+    form = Login()
+    return render_template('home.html', form=form)
+
+ 
+
+
 @application.route('/results/<int:indexId>', methods=['DELETE'])
 def delete_student(indexId):
   _logger_delete.warning("Inside Delete function")
@@ -99,38 +117,27 @@ def delete_student(indexId):
 
   return jsonify({'message':'Student found and Deleted'})
 
-# allow admin to login
-@application.route('/login', methods=['GET', 'POST'])
-def login():
-    form = LoginForm()
-   
-        # if user_id:
-        #      session['username'] = username
-        #      session['id'] = user_id
-        #      functions.store_last_login(session['id'])
-        #      return redirect('/results')
-        # else:
-        #      flash('username/Password incorrect')
 
-    return render_template('login.html', form=form)
+
+
+# allow admin to login
+# @application.route('/login', methods=['GET', 'POST'])
+# def login():
+#     form = Login()
+#         # if user_id:
+#         #      session['username'] = username
+#         #      session['id'] = user_id
+#         #      functions.store_last_login(session['id'])
+#         #      return redirect('/results')
+#         # else:
+#         #      flash('username/Password incorrect')
+
+#     return render_template('login.html', form=form)
 
 
 
 #register a person
 
-@application.route('/signup', methods=['GET', 'POST'])
-def signup():
-    form = SignUpForm()
-   
-        # if check:
-        #         flash('username already taken!')
-        # else:
-        #     functions.signup_user(username, password, email)
-        #     session['username'] = username
-        #     user_id = functions.check_user_exists(username, password)
-        #     session['id'] = user_id
-    return redirect('/login')
-    return render_template('signup.html', form=form)
 
 
 

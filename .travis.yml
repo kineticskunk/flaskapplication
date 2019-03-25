@@ -10,9 +10,11 @@ env:
 install:
   - pipenv install
 
+
 script:
-  - python setup.py test
+ - py.test --cov=tests
 
-
-    
+# notifications:
+#   email:
+#     - xolani@kineticskunk.com
     
