@@ -3,7 +3,6 @@ from flask import Flask,render_template, redirect, url_for,request, jsonify, abo
 # Referencing the modules
 
 from flask import Flask,render_template, redirect, url_for,request, jsonify, abort,request
-
 from flask_sqlalchemy import SQLAlchemy
 from src.flaskbasic import *
 from src.flaskbasic.form import StudentForm
