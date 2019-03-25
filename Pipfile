@@ -27,6 +27,7 @@ Werkzeug = "*"
 pytest-cov = "*"
 coverage = "*"
 pytest-mock = "*"
+bcrypt = "*"
 
 [requires]
 python_version = "3.7"

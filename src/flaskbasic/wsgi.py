@@ -1,6 +1,5 @@
 # Referencing the modules
-
-from flask import Flask,render_template, redirect, url_for,request, jsonify, abort,request
+from flask import Flask,bcrypt,render_template, redirect, url_for,request, jsonify, abort,request
 from flask_sqlalchemy import SQLAlchemy
 from src.flaskbasic import *
 from src.flaskbasic.form import StudentForm
@@ -19,6 +18,17 @@ _logger_delete = logging.getLogger('Delete results')
 # route that renders when the page loads
 
 @application.route('/', methods=['GET','POST'])
+def signup():
+  hashed_password = bcypt.generate_password_hash(form.password.data).decode('utf-8')
+  user = username(form.username.data, email= form.email.data, password = hashed_password)
+  db.session.add(user)
+  db.session.commit()
+  # form = SignUp()
+
+  return render_template('home.html', form=form)
+
+
+@application.route('/home', methods=['GET','POST'])
 def add_results():
     form = StudentForm()
     _logger_adding.warning("Inside Add Results function")
@@ -111,30 +121,45 @@ def delete_student(indexId):
   return jsonify({'message':'Student found and Deleted'})
 
 
-@application.route('/signup', methods=['GET', 'POST'])
-def signup():
-  form = SignUp()
+# @application.route('/signup', methods=['GET', 'POST'])
+# def signup():
+#   form = SignUp()
 
-  return render_template('signup.html', form=form)
+#   return render_template('signup.html', form=form)
 
 # allow admin to login
-# @application.route('/login', methods=['GET', 'POST'])
-# def login():
-#     form = Login()
-#         # if user_id:
-#         #      session['username'] = username
-#         #      session['id'] = user_id
-#         #      functions.store_last_login(session['id'])
-#         #      return redirect('/results')
-#         # else:
-#         #      flash('username/Password incorrect')
+@application.route('/login', methods=['GET', 'POST'])
+def login():
+    form = Login()
+        # if user_id:
+        #      session['username'] = username
+        #      session['id'] = user_id
+        #      functions.store_last_login(session['id'])
+        #      return redirect('/results')
+        # else:
+        #      flash('username/Password incorrect')
 
-#     return render_template('login.html', form=form)
+    return render_template('login.html', form=form)
 
 
 
 #register a person
 
+# def add_results():
+#     form = StudentForm()
+#     _logger_adding.warning("Inside Add Results function")
+#     _logger_adding.warning("Student form waiting for Input")
+#     if form.validate_on_submit():
+#       _logger_adding.warning("When form is submitted with data")
+#       student = Student(name=form.name.data, physics=form.physics.data, maths=form.maths.data,chemistry=form.chemistry.data,)
+#       _logger_adding.warning("Student: {} , physics: {} , maths: {}, chemistry: {}".format(form.name.data,form.physics.data,form.maths.data,form.chemistry.data))
+#       db.session.add(student)
+#       _logger_adding.warning('student results was added to database')
+#       db.session.commit()
+#       _logger_adding.warning("database commit")
+#       return redirect(url_for("add_results"))
+#     else:
+#       return render_template('home.html', form=form)
 
 
 

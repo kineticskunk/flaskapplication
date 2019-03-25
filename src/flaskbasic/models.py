@@ -16,10 +16,10 @@ class Student(db.Model):
 
 class Auth(db.Model):
    id = db.Column(db.Integer, primary_key=True)
-   username = db.Column(db.VARCHAR)
-   email = db.Column(db.VARCHAR)
-   newpassword = db.Column(db.VARCHAR) 
-   confirmpassword = db.Column(db.VARCHAR)
+   username = db.Column(db.String(20), unique=True, nullable=False )
+   email = db.Column(db.String(20), unique=True, nullable=False)
+   newpassword = db.Column(db.String(60), nullable=False)
+   confirmpassword = db.Column(db.String(60), nullable=False)
 
    def __repr__(self):
-    return "Auth('{self.id}','{self.username}','{self.email}','{self.password}')"
+    return "Auth('{self.id}','{self.username}','{self.email}')"
