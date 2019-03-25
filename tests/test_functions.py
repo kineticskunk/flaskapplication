@@ -2,9 +2,11 @@
 import os
 import sys
 import pytest
+# from mock import Mock
 import src.flaskbasic.functions as fun
 # instant
 
+fun = fun.Functions
 #test created user
 # def test_new_users(username, email, newpassword, confirm):
 #     assert fun.signup('amanda', 'amanda@gmail.com', 12345, 12345) == ('amanda', 'amanda@gmail.com', 12345, 12345)
@@ -12,15 +14,11 @@ import src.flaskbasic.functions as fun
 
 # test student name
 def test_student_name():
-    assert fun.readName('Zukisa',2) == 'Zukisa'
+    assert fun.readName('Zukisa', 2) == ('Zukisa')
     assert fun.readName('ludwe',3) == 'ludwe'
 
 # test delete student function
 
-def delete(student_id):
-            student_results = Student.query.get_or_404(student_id)
-            db.session.delete(student_results)
-            db.session.commit() 
 
 # test all the results
 
