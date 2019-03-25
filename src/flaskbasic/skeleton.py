@@ -20,7 +20,6 @@ import argparse
 import sys
 import logging
 
-from src.flaskbasic import __version__
 
 __author__ = "DarrenMun"
 __copyright__ = "DarrenMun"
