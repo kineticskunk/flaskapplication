@@ -2,24 +2,30 @@
 from flask_sqlalchemy import SQLAlchemy
 from src.flaskbasic.models import Student
 from src.flaskbasic.form import StudentForm
-# from src.flaskbasic.form import SignUp
+# from src.flaskbasic.form import Login
+from src.flaskbasic.form import SignUp
 from src.flaskbasic.wsgi import db
 # from src.flaskbasic.wsgi import Student
 import os
 
-# class Functions():
+class Functions():
 
-      # def signup(username, email, newpassword, confirm):
+      def signup(username, email, newpassword, confirm):
       #   form = Auth()
       #   signin = Auth(username=form.username.data, email=form.email.data, newpassword=form.password.data, confirm=form.confirmpassword.data)
       #   db.session.create(signin)
       #   db.session.commit()
 
-      # def login(username,password):
-      #   form = SignIn()
-      #   username = request.form['username']
-      #   password = functions.generate_password_hash(request.form['password'])
-      #   user_id = functions.check_user_exists(username, password)
+      def login(email,password):
+        form = Login()
+        if request.form['password'] == 'password' and request.form['email'] == 'email':
+        session['logged_in'] = True
+#     else:
+#         flash('wrong password!')
+    # return redirect(url_for('login.html'))
+      #   email = request.form['email']
+        password = functions.generate_password_hash(request.form['password'])
+        user_id = functions.check_user_exists(email, password)
 
       # create the data in the database
 def putData():

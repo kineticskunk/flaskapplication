@@ -1,11 +1,17 @@
 
+
 from flask import Flask,render_template, redirect, url_for,request, jsonify, abort,request, flash
 # Referencing the modules
-from flask import Flask,render_template, redirect, url_for,request, jsonify, abort,request
+from flask import Flask,render_template, redirect, url_for,request, jsonify, abort,req
+# Referencing the modules
+
+from flask import Flask,render_template, redirect, url_for,request, jsonify, abort,request,flash
+
 from flask_sqlalchemy import SQLAlchemy
 from src.flaskbasic import *
 from src.flaskbasic.form import StudentForm
 from src.flaskbasic.form import SignUp
+from src.flaskbasic.form import Login
 from src.flaskbasic.models import Student
 import sys
 import logging
@@ -19,7 +25,15 @@ _logger_delete = logging.getLogger('Delete results')
 
 # route that renders when the page loads
 
-@application.route('/', methods=['GET','POST'])
+@application.route('/', methods=['GET', 'POST'])
+def signup():
+  form = SignUp()
+  # if request.method == 'POST':
+    # return redirect(url_for('student', form=form))
+  
+  return render_template('signup.html', form=form)
+# add student marks
+@application.route('/student', methods=['GET','POST'])
 def add_results():
     form = StudentForm()
     _logger_adding.warning("Inside Add Results function")
@@ -86,13 +100,10 @@ def delete_post(student_id):
     return redirect(url_for('get_results'))
 
 
-@application.route('/login', methods=['POST'])
+@application.route('/login', methods=['GET', 'POST'])
 def do_admin_login():
-    if request.form['password'] == 'password' and request.form['username'] == 'admin':
-        session['logged_in'] = True
-    else:
-        flash('wrong password!')
-    return redirect(url_for('login'))
+    form = Login()
+    return render_template('home.html', form=form)
 
  
 
@@ -113,11 +124,7 @@ def delete_student(indexId):
   return jsonify({'message':'Student found and Deleted'})
 
 
-@application.route('/signup', methods=['GET', 'POST'])
-def signup():
-  form = SignUp()
 
-  return render_template('signup.html', form=form)
 
 # allow admin to login
 # @application.route('/login', methods=['GET', 'POST'])

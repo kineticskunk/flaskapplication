@@ -10,23 +10,23 @@
 </head>
 <body style="background-color: #95a5a6;position: absolute;top: 50%;left: 50%;width: 500px;height: 500px;margin-top: -250px;margin-left: -250px;">
         <div align="">
-   <div class="container" style="margin-bottom: : -150%;">
+   <div class="container" style="margin-bottom:  -150%;">
       <form method="POST" action="">
           {{ form.hidden_tag() }}
           <fieldset class="">
               <h1> Student Result System </h1>
               <div class="">
-                  {{ form.username.label(class="form-control-label") }}
+                  {{ form.email.label(class="form-control-label") }}
 
-                  {% if form.username.errors %}
-                      {{ form.username(class="form-control form-control-lg is-invalid") }}
+                  {% if form.email.errors %}
+                      {{ form.email(class="form-control form-control-lg is-invalid") }}
                       <div class="">
-                          {% for error in form.username.errors %}
+                          {% for error in form.email.errors %}
                               <span>{{ error }}</span>
                           {% endfor %}
                       </div>
                   {% else %}
-                      {{ form.username(class="form-control form-control-lg") }}
+                      {{ form.email(class="form-control form-control-lg") }}
                   {% endif %}
               </div>
                   {{ form.password.label(class="form-control-label") }}
