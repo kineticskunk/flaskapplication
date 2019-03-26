@@ -114,8 +114,8 @@ def delete_student(indexId):
 
   return jsonify({'message':'Student found and Deleted'})
 
-
 # logout route
+
 @application.route('/logout')
 def logout():
   user = current_user
