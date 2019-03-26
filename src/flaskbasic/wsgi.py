@@ -17,15 +17,14 @@ _logger_update = logging.getLogger('Update results')
 _logger_delete = logging.getLogger('Delete results')
 
 
-# route that renders when the page loads
-
+# route that renders when the page loads, register a user/ admin
 @application.route('/', methods=['GET', 'POST'])
 def signup():
   form = SignUp()
-  # if request.method == 'POST':
-    # return redirect(url_for('student', form=form))
-  
+  if request.method == 'POST' and form.validate_on_submit():
+    return redirect(url_for('add_results',form=form))
   return render_template('signup.html', form=form)
+
 # add student marks
 @application.route('/student', methods=['GET','POST'])
 def add_results():
@@ -99,8 +98,6 @@ def do_admin_login():
     form = Login()
     return render_template('home.html', form=form)
 
- 
-
 
 @application.route('/results/<int:indexId>', methods=['DELETE'])
 def delete_student(indexId):
@@ -117,8 +114,16 @@ def delete_student(indexId):
 
   return jsonify({'message':'Student found and Deleted'})
 
+# logout route
 
-
+@application.route('/logout')
+def logout():
+  user = current_user
+  user.authenticated = False
+  db.seesion.add(user)
+  db.session.commit()
+  logout_user()
+  return redirect(url_for('logout'))
 
 # allow admin to login
 # @application.route('/login', methods=['GET', 'POST'])

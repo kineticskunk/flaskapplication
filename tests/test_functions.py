@@ -5,7 +5,7 @@ import pytest
 import src.flaskbasic.functions as fun
 # instant
 
-#test created user
+# test created user
 # def test_new_users(username, email, newpassword, confirm):
 #     assert fun.signup('amanda', 'amanda@gmail.com', 12345, 12345) == ('amanda', 'amanda@gmail.com', 12345, 12345)
 #     # assert fun.signup('ludwe', 'ludwe@kineticskunk.com ', 1234, 1234) == ('ludwe', 'ludwe@kineticskunk.com ', 1234, 1234)
@@ -15,10 +15,6 @@ import src.flaskbasic.functions as fun
 #     assert  user.email == 'nonzulu@kineticskunk.com'
 #     assert user.generate_password_hash != 'nzulu'
 #     assert user.role == 'user'
-
-
-  
-
 
 
 
@@ -41,16 +37,20 @@ def test_all_results():
     assert fun.readResults(3,'ludwe',32, 12, 22) == (3,'ludwe',32, 12, 22)
 
 
-def test_user_name(username, email, password):
-    assert fun.signup(5,'Nzulu') == (5,'Nzulu')
-    assert fun.signup(5,'nonzulu@kineticskunk.com') ==(5, 'nonzulu@kineticskunk.com')
-    assert fun.signup(5,'123') == (5,123)
+# def test_user_name(username, email, password):
+#     assert fun.signup(5,'Nzulu') == (5,'Nzulu')
+#     assert fun.signup(5,'nonzulu@kineticskunk.com') ==(5, 'nonzulu@kineticskunk.com')
+#     assert fun.signup(5,'123') == (5,123)
 
-def test_login_cred(username,password):
-    assert fun.login(6,'username','password') == (6,'knzulu', 123)
+# def test_login_cred(username,password):
+#     assert fun.login(6,'username','password') == (6,'knzulu', 123)
 
-
-
+# @pytest.fixture
+def test_new_user():   
+    assert fun.email== 'nzulu@gmail.com'
+    assert fun.signup != '123'
+    assert not fun.authenticated
+    assert fun.signup == 'user'
 
 
 
