@@ -15,12 +15,11 @@ also be used as template for Python modules.
 
 Note: This skeleton file can be safely removed if not needed!
 """
-
 import argparse
 import sys
 import logging
 
-from flaskbasic import __version__
+
 
 __author__ = "DarrenMun"
 __copyright__ = "DarrenMun"
