@@ -6,6 +6,7 @@ from flask import Flask,render_template, redirect, url_for,request, jsonify, abo
 # Referencing the modules
 
 from flask import Flask,render_template, redirect, url_for,request, jsonify, abort,request,flash
+# from flask_login import login_user, current_user, logout_user
 
 from flask_sqlalchemy import SQLAlchemy
 from src.flaskbasic import *
@@ -124,12 +125,8 @@ def delete_student(indexId):
 
 @application.route('/logout')
 def logout():
-  user = current_user
-  user.authenticated = False
-  db.seesion.add(user)
-  db.session.commit()
-  logout_user()
-  return redirect(url_for('logout'))
+  # session.pop('email', None)
+  return redirect(url_for('signup'))
 
 # allow admin to login
 # @application.route('/login', methods=['GET', 'POST'])
