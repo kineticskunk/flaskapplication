@@ -1,9 +1,10 @@
 # Referencing the modules
 
 import pytest
+from unittest import mock
 from mock import Mock
 from src.flaskbasic.models import Student
-from src.flaskbasic import functions
+from src.flaskbasic.functions import Functions
 import sys, os
 myPath = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, myPath + '/src/flaskbasic')
@@ -16,13 +17,15 @@ def mock_data():
     return Mock(spec=Student)
 
 
-
+# test student name and id
 def test_student_name(mock_data):
+  
     data = Mock(return_value = mock_data)
-    assert data.readName('Lwando',1) == 'Lwando',1
-    assert data.readName('Zukisa',2) == 'Zukisa',2
-    assert data.readName('ludwe',3) == 'ludwe',3
 
+    assert data.readName('Lwando',1) 
+    assert data.readName('Zukisa',2) 
+    assert data.readName('ludwe',3) 
+    
 # test delete student function
 
 # def delete(student_id):

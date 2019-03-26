@@ -10,24 +10,20 @@ import os
 
 class Functions():
 
-      def signup(username, email, newpassword, confirm):
+ # def signup(username, email, newpassword, confirm):
       #   form = Auth()
       #   signin = Auth(username=form.username.data, email=form.email.data, newpassword=form.password.data, confirm=form.confirmpassword.data)
       #   db.session.create(signin)
       #   db.session.commit()
 
-      def login(email,password):
-        form = Login()
-        if request.form['password'] == 'password' and request.form['email'] == 'email':
-        session['logged_in'] = True
-#     else:
-#         flash('wrong password!')
-    # return redirect(url_for('login.html'))
-      #   email = request.form['email']
-        password = functions.generate_password_hash(request.form['password'])
-        user_id = functions.check_user_exists(email, password)
+    def login(email,password) :
+            form = Login()
+            if request.form['password'] == 'password' and request.form['email'] == 'email':
+                session['logged_in'] = True
+                password = functions.generate_password_hash(request.form['password'])
+                user_id = functions.check_user_exists(email, password)
+       
 
-      # create the data in the database
 def putData():
             form = StudentForm()
             student = Student(name=form.name.data, physics=form.physics.data, maths=form.maths.data,chemistry=form.chemistry.data,)
