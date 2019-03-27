@@ -2,9 +2,7 @@ from flask import Flask,render_template, redirect, url_for,request, jsonify, abo
 from flask_sqlalchemy import SQLAlchemy
 from src.flaskbasic import *
 from src.flaskbasic.form import StudentForm
-from src.flaskbasic.form import SignUp
-from src.flaskbasic.form import Login
-from src.flaskbasic.models import Student
+from src.flaskbasic.models import Student, User
 import sys
 import logging
 
@@ -16,15 +14,10 @@ _logger_delete = logging.getLogger('Delete results')
 
 
 # route that renders when the page loads, register a user/ admin
-@application.route('/', methods=['GET', 'POST'])
-def signup():
-  form = SignUp()
-  if request.method == 'POST' and form.validate_on_submit():
-    return redirect(url_for('add_results',form=form))
-  return render_template('signup.html', form=form)
+
 
 # add student marks
-@application.route('/student', methods=['GET','POST'])
+@application.route('/', methods=['GET','POST'])
 def add_results():
     form = StudentForm()
     _logger_adding.warning("Inside Add Results function")
@@ -90,13 +83,10 @@ def delete_post(student_id):
       db.session.commit()
     return redirect(url_for('get_results'))
 
-
-
 @application.route('/results/<int:indexId>', methods=['DELETE'])
 def delete_student(indexId):
   _logger_delete.warning("Inside Delete function")
   student = Student.query.filter_by(id = indexId).first()
-
   if not student:
     _logger_delete.warning("No Students in database")
     return jsonify({'message':'No user found'})
