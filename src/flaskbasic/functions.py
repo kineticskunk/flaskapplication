@@ -11,23 +11,6 @@ import os
 
 class Functions():
 
-<<<<<<< HEAD
- # def signup(username, email, newpassword, confirm):
-      #   form = Auth()
-      #   signin = Auth(username=form.username.data, email=form.email.data, newpassword=form.password.data, confirm=form.confirmpassword.data)
-      #   db.session.create(signin)
-      #   db.session.commit()
-
-    def login(email,password) :
-            form = Login()
-            if request.form['password'] == 'password' and request.form['email'] == 'email':
-                session['logged_in'] = True
-                password = functions.generate_password_hash(request.form['password'])
-                user_id = functions.check_user_exists(email, password)
-       
-
-def putData():
-=======
       def signup(username, email, newpassword, confirm):
         form = SignUp()
         new_user = Auth(username=form.username.data, email=form.email.data, newpassword=form.password.data, confirm=form.confirmpassword.data)
@@ -47,7 +30,6 @@ def putData():
 
       # create the data in the database
       def putData():
->>>>>>> 57171a1c7ad98754dd50f47e3942487dff20d8bb
             form = StudentForm()
             student = Student(name=form.name.data, physics=form.physics.data, maths=form.maths.data,chemistry=form.chemistry.data,)
             db.session.add(student)
@@ -59,7 +41,7 @@ def putData():
             results = Student.query.all()
             return results
 
-      # get the learner in  the database by Id 
+      # get the learner in  the database by Id
       def readName(learner,student_id):
             studentname = Student.query.filter_by(name=learner, id=student_id).all()
             for student_name in studentname:
@@ -75,10 +57,8 @@ def putData():
       def delete(student_id):
             student_results = Student.query.get_or_404(student_id)
             db.session.delete(student_results)
-            db.session.commit() 
+            db.session.commit()
 
       # delete all the data in the database
       def resetResults():
           db.drop_all()
-
-      

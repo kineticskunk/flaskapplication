@@ -11,6 +11,14 @@ application.config['SQLALCHEMY_TRACK_MODIFICATION'] = False
 application.config['DEBUG']= True
 db = SQLAlchemy(application)
 
+def create_app(config_filename=None):
+    app = Flask(__name__, instance_relative_config=True)
+    app.config.from_pyfile(config_filename)
+    initialize_extensions(app)
+    register_blueprints(app)
+    return app
+
+
 from src.flaskbasic.wsgi import *
 
 
@@ -22,5 +30,3 @@ except DistributionNotFound:
     __version__ = 'unknown'
 finally:
     del get_distribution, DistributionNotFound
-
-

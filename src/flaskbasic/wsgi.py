@@ -1,12 +1,4 @@
-
-
-from flask import Flask,render_template, redirect, url_for,request, jsonify, abort,request, flash
-# Referencing the modules
-from flask import Flask,render_template, redirect, url_for,request, jsonify, abort
-# Referencing the modules
-
 from flask import Flask,render_template, redirect, url_for,request, jsonify, abort,request,flash
-
 from flask_sqlalchemy import SQLAlchemy
 from src.flaskbasic import *
 from src.flaskbasic.form import StudentForm
@@ -99,11 +91,6 @@ def delete_post(student_id):
     return redirect(url_for('get_results'))
 
 
-@application.route('/login', methods=['GET', 'POST'])
-def do_admin_login():
-    form = Login()
-    return render_template('home.html', form=form)
-
 
 @application.route('/results/<int:indexId>', methods=['DELETE'])
 def delete_student(indexId):
@@ -120,38 +107,4 @@ def delete_student(indexId):
 
   return jsonify({'message':'Student found and Deleted'})
 
-# logout route
-
-@application.route('/logout')
-def logout():
-  user = current_user
-  user.authenticated = False
-  db.seesion.add(user)
-  db.session.commit()
-  logout_user()
-  return redirect(url_for('logout'))
-
-# allow admin to login
-# @application.route('/login', methods=['GET', 'POST'])
-# def login():
-#     form = Login()
-#         # if user_id:
-#         #      session['username'] = username
-#         #      session['id'] = user_id
-#         #      functions.store_last_login(session['id'])
-#         #      return redirect('/results')
-#         # else:
-#         #      flash('username/Password incorrect')
-
-#     return render_template('login.html', form=form)
-
-
-
-#register a person
-
-
-
-
-
-
-
+#
