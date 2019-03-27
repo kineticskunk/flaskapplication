@@ -8,7 +8,6 @@
     https://pytest.org/latest/plugins.html
 """
 
-# import pytest
 import pytest
 from src.flaskbasic import create_app, db
 from src.flaskbasic.models import Student
@@ -45,7 +44,7 @@ def init_database():
     # Insert user data
     student1 = Student('Lwando', 10, 20, 30)
     student2 = Student('Lihle', 100, 200, 300)
-    
+
     db.session.add(student1)
     db.session.add(student2)
 
