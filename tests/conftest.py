@@ -10,7 +10,7 @@
 
 import pytest
 from src.flaskbasic import create_app, db
-from src.flaskbasic.models import Student
+from src.flaskbasic.models import Student, User
 
 
 @pytest.fixture(scope='module')
@@ -18,6 +18,11 @@ def new_student():
     student = Student('Lwando', 10, 20, 30)
     return student
 
+
+@pytest.fixture(scope='module')
+def new_user():
+    user = User('lwando','patkennedy79@gmail.com', 'FlaskIsAwesome')
+    return user
 
 @pytest.fixture(scope='module')
 def test_client():
@@ -41,12 +46,19 @@ def init_database():
     # Create the database and the database table
     db.create_all()
 
-    # Insert user data
+    # Insert student data
     student1 = Student('Lwando', 10, 20, 30)
     student2 = Student('Lihle', 100, 200, 300)
 
     db.session.add(student1)
     db.session.add(student2)
+
+    # Insert user data
+    user1 = User(email='patkennedy79@gmail.com', plaintext_password='FlaskIsAwesome')
+    user2 = User(email='kennedyfamilyrecipes@gmail.com', plaintext_password='PaSsWoRd')
+    db.session.add(user1)
+    db.session.add(user2)
+
 
     # Commit the changes for the users
     db.session.commit()
