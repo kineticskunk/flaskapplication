@@ -28,7 +28,9 @@
 
 /* Grid
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
-
+li {
+  margin-left: 10em;
+}
 body{
     text-align: center;
     background-color: red;
