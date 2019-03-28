@@ -17,10 +17,13 @@ _logger_delete = logging.getLogger('Delete results')
 
 
 # route that renders when the page loads, register a user/ admin
-
+@login.user_loader
+def load_user(user_id):
+    return Users.query.filter(Users.id == int(user_id)).first()
 
 # add student marks
-@application.route('/', methods=['GET','POST'])
+@application.route('/add_results', methods=['GET','POST'])
+# @login_required
 def add_results():
     form = StudentForm()
     _logger_adding.warning("Inside Add Results function")
@@ -86,12 +89,12 @@ def delete_post(student_id):
       db.session.commit()
     return redirect(url_for('get_results'))
 
-@application.route('/register', methods=['GET', 'POST'])
+@application.route('/', methods=['GET', 'POST'])
 def register():
       # If the User is already logged in, don't allow them to try to register
       if current_user.is_authenticated:
           flash('Already registered!  Redirecting to your User Profile page...')
-          return redirect(url_for('add_results'))
+          return redirect(url_for('login'))
 
       form = RegisterForm()
       if request.method == 'POST' and form.validate_on_submit():
@@ -109,7 +112,7 @@ def login():
     # If the User is already logged in, don't allow them to try to log in again
     if current_user.is_authenticated:
         flash('Already logged in!  Redirecting to your User Profile page...')
-        return redirect(url_for('users.profile'))
+        return redirect(url_for('add_results'))
 
     form = LoginForm()
 
@@ -127,5 +130,16 @@ def login():
         flash('ERROR! Incorrect login credentials.')
     return render_template('login.html', form=form)
 
+
+@application.route('/logout')
+@login_required
+def logout():
+    # user = current_user
+    # user.authenticated = False
+    # db.session.add(user)
+    # db.session.commit()
+    logout_user()
+    flash('Goodbye!')
+    return redirect(url_for('login'))
 
 #

@@ -10,7 +10,7 @@
 
 import pytest
 from src.flaskbasic import create_app, db
-from src.flaskbasic.models import Student, User
+from src.flaskbasic.models import Student, Users
 
 
 @pytest.fixture(scope='module')
@@ -21,7 +21,7 @@ def new_student():
 
 @pytest.fixture(scope='module')
 def new_user():
-    user = User('lwando','patkennedy79@gmail.com', 'FlaskIsAwesome')
+    user = Users('lwando','patkennedy79@gmail.com', 'FlaskIsAwesome')
     return user
 
 @pytest.fixture(scope='module')
@@ -54,8 +54,8 @@ def init_database():
     db.session.add(student2)
 
     # Insert user data
-    user1 = User(email='patkennedy79@gmail.com', plaintext_password='FlaskIsAwesome')
-    user2 = User(email='kennedyfamilyrecipes@gmail.com', plaintext_password='PaSsWoRd')
+    user1 = Users(email='patkennedy79@gmail.com', plaintext_password='FlaskIsAwesome')
+    user2 = Users(email='kennedyfamilyrecipes@gmail.com', plaintext_password='PaSsWoRd')
     db.session.add(user1)
     db.session.add(user2)
 

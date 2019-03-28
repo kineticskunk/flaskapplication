@@ -3,7 +3,7 @@ from pkg_resources import get_distribution, DistributionNotFound
 import os
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
-from flask_login import LoginManager
+from flask_login import LoginManager, login_user, logout_user, login_required
 from flask_bcrypt import Bcrypt
 
 
@@ -24,6 +24,18 @@ def create_app(config_filename=None):
     initialize_extensions(app)
     register_blueprints(app)
     return app
+
+def initialize_extensions(application):
+    # Since the application instance is now created, pass it to each Flask
+    # extension instance to bind it to the Flask application instance (app)
+    db.init_app(application)
+    bcrypt.init_app(application)
+    login.init_app(application)
+
+    # Flask-Login configuration
+
+
+
 
 
 from src.flaskbasic.wsgi import *
