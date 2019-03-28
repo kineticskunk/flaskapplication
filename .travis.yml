@@ -13,13 +13,3 @@ install:
 
 script:
  - py.test --cov=tests
-
-
-# notifications:
-#   email:
-#     - xolani@kineticskunk.com
-
-
-
-    
->>>>>>> bd269a8db210daa4fac5bd850e0aec26e07e4c68
