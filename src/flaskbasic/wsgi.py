@@ -1,7 +1,7 @@
 from flask import Flask,render_template, redirect, url_for,request, jsonify, abort,request,flash
 from flask_sqlalchemy import SQLAlchemy
 from src.flaskbasic import *
-from src.flaskbasic.form import StudentForm
+from src.flaskbasic.form import StudentForm, LoginForm
 from src.flaskbasic.models import Student, User
 import sys
 import logging
@@ -17,7 +17,7 @@ _logger_delete = logging.getLogger('Delete results')
 
 
 # add student marks
-@application.route('/', methods=['GET','POST'])
+@application.route('/add_results', methods=['GET','POST'])
 def add_results():
     form = StudentForm()
     _logger_adding.warning("Inside Add Results function")
@@ -83,18 +83,16 @@ def delete_post(student_id):
       db.session.commit()
     return redirect(url_for('get_results'))
 
-@application.route('/results/<int:indexId>', methods=['DELETE'])
-def delete_student(indexId):
-  _logger_delete.warning("Inside Delete function")
-  student = Student.query.filter_by(id = indexId).first()
-  if not student:
-    _logger_delete.warning("No Students in database")
-    return jsonify({'message':'No user found'})
+@application.route("/", methods=['GET', 'POST'])
+def login():
+    form = LoginForm()
+    if form.validate_on_submit():
+            user = User(email=form.email.data, password=form.password.data)
+            db.session.add(user)
+            db.session.commit()
+    # return redirect(url_for("add_results"))
 
-  db.session.delete(student)
-  _logger_delete.warning("Deleted Student {} and commit to database".format(student))
-  db.session.commit()
+    return render_template('login.html',form=form)
 
-  return jsonify({'message':'Student found and Deleted'})
 
 #

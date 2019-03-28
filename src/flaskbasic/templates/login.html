@@ -1,48 +1,51 @@
 <!DOCTYPE html>
-<html>
-<head>
+<html lang="en" dir="ltr">
+  <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Page Title</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="/static/style.css"/>
-    <!-- <script src="main.js"></script> -->
-</head>
-<body style="background-color: #95a5a6;position: absolute;top: 50%;left: 50%;width: 500px;height: 500px;margin-top: -250px;margin-left: -250px;">
-        <div align="">
-   <div class="container" style="margin-bottom:  -150%;">
-      <form method="POST" action="">
-          {{ form.hidden_tag() }}
-          <fieldset class="">
-              <h1> Student Result System </h1>
-              <div class="">
-                  {{ form.email.label(class="form-control-label") }}
+    <link rel="stylesheet" type="text/css" media="screen" href="../static/style.css"/>
+    <title></title>
+  </head>
+  <body>
+        <div class="content-section">
+            <form method="POST" action="">
+                {{ form.hidden_tag() }}
+                <fieldset class="form-group">
+                    <legend class="border-bottom mb-4">Log In</legend>
+                    <div class="form-group">
+                        {{ form.email.label(class="form-control-label") }}
+                        {% if form.email.errors %}
+                            {{ form.email(class="form-control form-control-lg is-invalid") }}
+                            <div class="invalid-feedback">
+                                {% for error in form.email.errors %}
+                                    <span>{{ error }}</span>
+                                {% endfor %}
+                            </div>
+                        {% else %}
+                            {{ form.email(class="form-control form-control-lg") }}
+                        {% endif %}
+                    </div>
+                    <div class="form-group">
+                        {{ form.password.label(class="form-control-label") }}
+                        {% if form.password.errors %}
+                            {{ form.password(class="form-control form-control-lg is-invalid") }}
+                            <div class="invalid-feedback">
+                                {% for error in form.password.errors %}
+                                    <span>{{ error }}</span>
+                                {% endfor %}
+                            </div>
+                        {% else %}
+                            {{ form.password(class="form-control form-control-lg") }}
+                        {% endif %}
+                    </div>
+                </fieldset>
+                <div class="form-group">
+                    {{ form.submit(class="btn btn-outline-info") }}
 
-                  {% if form.email.errors %}
-                      {{ form.email(class="form-control form-control-lg is-invalid") }}
-                      <div class="">
-                          {% for error in form.email.errors %}
-                              <span>{{ error }}</span>
-                          {% endfor %}
-                      </div>
-                  {% else %}
-                      {{ form.email(class="form-control form-control-lg") }}
-                  {% endif %}
-              </div>
-                  {{ form.password.label(class="form-control-label") }}
-                  {% if form.password.errors %}
-                      {{ form.password(class="form-control form-control-lg is-invalid") }}
-                      <div class="">
-                          {% for error in form.password.errors %}
-                              <span>{{ error }}</span>
-                          {% endfor %}
-                      </div>
-                  {% else %}
-                      {{ form.password(class="form-control form-control-lg") }}
-                  {% endif %}
-              </div>
-          </fieldset>
-          <div class="">
-              {{ form.submit(class="btn btn-outline-info") }}
-          </div>
+                </div>
+            </form>
+        </div>
+  </body>
 </html>
