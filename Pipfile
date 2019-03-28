@@ -26,6 +26,9 @@ Flask-SQLAlchemy = "*"
 Werkzeug = "*"
 pytest-cov = "*"
 coverage = "*"
+flask-bycrypt = "*"
+pytest-mock = "*"
+mock = "*"
 
 [requires]
 python_version = "3.7"
