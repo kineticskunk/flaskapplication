@@ -1,9 +1,9 @@
 # Referencing the modules
-from flask import Flask,bcrypt,render_template, redirect, url_for,request, jsonify, abort,request
+from flask import Flask,render_template, redirect, url_for,request, jsonify, abort,request
 from flask_sqlalchemy import SQLAlchemy
 from src.flaskbasic import *
 from src.flaskbasic.form import StudentForm
-from src.flaskbasic.form import SignUp
+# from src.flaskbasic.form import SignUp
 from src.flaskbasic.models import Student
 import sys
 import logging
@@ -17,15 +17,15 @@ _logger_delete = logging.getLogger('Delete results')
 
 # route that renders when the page loads
 
-@application.route('/', methods=['GET','POST'])
-def signup():
-  hashed_password = bcypt.generate_password_hash(form.password.data).decode('utf-8')
-  user = username(form.username.data, email= form.email.data, password = hashed_password)
-  db.session.add(user)
-  db.session.commit()
-  # form = SignUp()
+# @application.route('/', methods=['GET','POST'])
+# def signup():
+#   hashed_password = bcypt.generate_password_hash(form.password.data).decode('utf-8')
+#   user = username(form.username.data, email= form.email.data, password = hashed_password)
+#   db.session.add(user)
+#   db.session.commit()
+#   # form = SignUp()
 
-  return render_template('home.html', form=form)
+#   return render_template('home.html', form=form)
 
 
 @application.route('/home', methods=['GET','POST'])

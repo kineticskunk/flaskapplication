@@ -11,6 +11,7 @@ application.config['SQLALCHEMY_TRACK_MODIFICATION'] = False
 application.config['DEBUG']= True
 db = SQLAlchemy(application)
 
+
 from src.flaskbasic.wsgi import *
 
 
