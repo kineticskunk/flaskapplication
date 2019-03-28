@@ -12,9 +12,6 @@ install:
 
 
 script:
-<<<<<<< HEAD
-  - python setup.py test
-=======
  - py.test --cov=tests
 
 
