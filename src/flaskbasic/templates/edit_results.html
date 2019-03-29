@@ -12,7 +12,7 @@
     table{
         width: 80%;
 
-    } 
+    }
     th, td {
     border: 1px solid black;
     text-align: center;
@@ -21,12 +21,12 @@
 </style>
 <body style="background-color: #95a5a6;">
 
-  
+
     <center>
     <div id="results">
      <table>
      <tr>
-    
+
       <th>Name</th>
       <th>Physics</th>
       <th>Maths</th>
@@ -34,23 +34,23 @@
      </tr>
         <h2>Student Results</h2>
               <td>{{ data.name }}</td>
-              <td>{{ data.physics }}</td> 
-              <td>{{ data.maths }}</td> 
+              <td>{{ data.physics }}</td>
+              <td>{{ data.maths }}</td>
               <td>{{ data.chemistry }}</td>
        </tr>
       </table>
  <div>
+   {% with messages = get_flashed_messages(with_categories=True) %}
+   {% if messages %}
+      {% for message in messages %}
+         {{ message }}
+      {% endfor %}
+   {% endif %}
+   {% endwith %}
+ </div>
 
- </div>     
- {% with messages = get_flashed_messages() %}
- {% if messages %}
-    {% for message in messages %}
-       {{ message }}
-    {% endfor %}
- {% endif %}
-{% endwith %}
       <div>
-        
+
         <a href="/edit_results/{{ data.id}}/update_results"><button>Update</button></a>
         <a href="/edit_results/{{ data.id}}/delete"><button>Delete</button></a>
       </div>

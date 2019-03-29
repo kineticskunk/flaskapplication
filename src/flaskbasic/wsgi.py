@@ -1,10 +1,3 @@
-
-
-from flask import Flask,render_template, redirect, url_for,request, jsonify, abort,request, flash
-# Referencing the modules
-from flask import Flask,render_template, redirect, url_for,request, jsonify, abort
-# Referencing the modules
-
 from flask import Flask,render_template, redirect, url_for,request, jsonify, abort,request,flash
 # from flask_login import login_user, current_user, logout_user
 
@@ -99,11 +92,6 @@ def delete_post(student_id):
       db.session.commit()
     return redirect(url_for('get_results'))
 
-
-@application.route('/login', methods=['GET', 'POST'])
-def do_admin_login():
-    form = Login()
-    return render_template('home.html', form=form)
 
 
 @application.route('/results/<int:indexId>', methods=['DELETE'])

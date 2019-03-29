@@ -26,6 +26,7 @@ Flask-SQLAlchemy = "*"
 Werkzeug = "*"
 pytest-cov = "*"
 coverage = "*"
+mock = "*"
 
 [requires]
 python_version = "3.7"

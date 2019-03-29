@@ -3,23 +3,34 @@ from src.flaskbasic import db, application
 
 # how the data is structured in the database
 class Student(db.Model):
-  id = db.Column(db.Integer, primary_key=True)
-  name = db.Column(db.String(50), nullable= False)
-  physics = db.Column(db.Integer)
-  maths = db.Column(db.Integer)
-  chemistry = db.Column(db.Integer)
 
+    __tablename__ = 'Student'
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(50), nullable= False)
+    physics = db.Column(db.Integer)
+    maths = db.Column(db.Integer)
+    chemistry = db.Column(db.Integer)
 
-  def __repr__(self):
-    return "Student('{self.id}', '{self.name}',{self.physics}',{self.maths}',{self.chemistry}')"
+    def __init__(self,name,physics,maths,chemistry):
+        self.name = name
+        self.physics = physics
+        self.maths = maths
+        self.chemistry = chemistry
 
+    def get_id(self):
+        return str(self.id)
 
-class Auth(db.Model):
-   id = db.Column(db.Integer, primary_key=True)
-   username = db.Column(db.VARCHAR)
-   email = db.Column(db.VARCHAR)
-   newpassword = db.Column(db.VARCHAR) 
-   confirmpassword = db.Column(db.VARCHAR)
+    def get_name(self):
+        return str(self.name)
 
-   def __repr__(self):
-    return "Auth('{self.id}','{self.username}','{self.email}','{self.password}')"
+    def get_physics(self):
+       return int(self.physics)
+
+    def get_maths(self):
+        return int(self.maths)
+
+    def get_chemistry(self):
+        return int(self.chemistry)
+
+    def __repr__(self):
+        return "Student('{self.id}', '{self.name}',{self.physics}',{self.maths}',{self.chemistry}')"

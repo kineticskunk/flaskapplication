@@ -37,7 +37,7 @@ def putData():
             results = Student.query.all()
             return results
 
-      # get the learner in  the database by Id 
+      # get the learner in  the database by Id
       def readName(learner,student_id):
             studentname = Student.query.filter_by(name=learner, id=student_id).all()
             for student_name in studentname:
@@ -53,10 +53,8 @@ def putData():
       def delete(student_id):
             student_results = Student.query.get_or_404(student_id)
             db.session.delete(student_results)
-            db.session.commit() 
+            db.session.commit()
 
       # delete all the data in the database
       def resetResults():
           db.drop_all()
-
-      
