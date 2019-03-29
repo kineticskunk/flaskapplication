@@ -15,26 +15,21 @@
 # numpy==1.13.3
 # scipy==1.0
 
-sqlalchemy 
-flask-wtf 
-flask-bcrypt 
-flask-login 
-pillow  
-flask-mail 
-pipenv 
-gunicorn  
+sqlalchemy
+flask-wtf
+flask-bcrypt
+flask-login
+gunicorn
 Flask
 Flask-Testing
 itsdangerous
 Jinja2
 MarkupSafe
 flask_sqlalchemy
-pip == 19.0.3 
+pip == 19.0.3
 setuptools == 40.8.0
 Werkzeug
 wheel
 pytest
-flask-marshmallow 
-marshmallow-sqlalchemy 
-flask-sqlalchemy 
+flask-sqlalchemy
 flask-wtf

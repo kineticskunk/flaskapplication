@@ -12,9 +12,7 @@ install:
 
 
 script:
-<<<<<<< HEAD
-  - python setup.py test
-=======
+  
  - py.test --cov=tests
 
 
@@ -24,5 +22,5 @@ script:
 
 
 
-    
+
 >>>>>>> bd269a8db210daa4fac5bd850e0aec26e07e4c68
