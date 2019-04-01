@@ -57,8 +57,8 @@ Deploying to MiniShift
 ======================
 *First install Minishift*
 
-  **Instructions for installation [https://github.com/minishift/minishift
-  welcome-to-minishift]
+  [Instructions for installation] https://github.com/minishift/minishift
+  welcome-to-minishift
 Step 1
     - Download the release for windows [https://github.com/minishift/minishift/releases]
 Step 2
