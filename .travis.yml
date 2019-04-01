@@ -1,8 +1,8 @@
 language: python
 
 python:
+
   - 3.5
-  - 3.7
 
 env:
   - pipenv
@@ -10,7 +10,12 @@ env:
 install:
   - pipenv install
 
+
 script:
-  - python setup.py test
+
+ - py.test --cov=tests
 
 
+# notifications:
+#   email:
+#     - xolani@kineticskunk.com

@@ -1,12 +1,13 @@
-# Referencing the modules
-
-from flask import Flask,render_template, redirect, url_for,request, jsonify, abort,request
+from flask import Flask,render_template, redirect, url_for,request, jsonify, abort,request,flash
 from flask_sqlalchemy import SQLAlchemy
 from src.flaskbasic import *
-from src.flaskbasic.form import StudentForm
-from src.flaskbasic.models import Student
+from src.flaskbasic.form import StudentForm, RegisterForm, LoginForm
+from src.flaskbasic.models import Student, Users
+from flask_login import login_user, current_user, login_required, logout_user
+
 import sys
 import logging
+
 
 # logging.basicConfig(filename='app.log', filemode='w', format='%(asctime)s - %(levelname)s - %(message)s',datefmt='%d-%b-%y %H:%M:%S')
 _logger_adding = logging.getLogger('Adding results')
@@ -15,9 +16,14 @@ _logger_update = logging.getLogger('Update results')
 _logger_delete = logging.getLogger('Delete results')
 
 
-# route that renders when the page loads
+# route that renders when the page loads, register a user/ admin
+@login.user_loader
+def load_user(user_id):
+    return Users.query.filter(Users.id == int(user_id)).first()
 
-@application.route('/', methods=['GET','POST'])
+# add student marks
+@application.route('/add_results', methods=['GET','POST'])
+# @login_required
 def add_results():
     form = StudentForm()
     _logger_adding.warning("Inside Add Results function")
@@ -46,6 +52,7 @@ def get_results():
 # route that edit the existing data in the database
 
 @application.route('/edit_results/<int:student_id>', methods=['GET','POST'])
+@login_required
 def edit_student(student_id):
   form = StudentForm()
   data = Student.query.get_or_404(student_id)
@@ -54,6 +61,7 @@ def edit_student(student_id):
 # update the existing data in the database
 
 @application.route('/edit_results/<int:student_id>/update_results',methods=['GET','PUT','POST'])
+@login_required
 def update_results(student_id):
   student_data = Student.query.get_or_404(student_id)
   form = StudentForm()
@@ -63,6 +71,7 @@ def update_results(student_id):
     student_data.maths = form.maths.data
     student_data.chemistry = form.chemistry.data
     db.session.commit()
+    flash('Your results were successfully Updated')
     return redirect(url_for('edit_student', student_id=student_data.id))
   elif request.method == 'GET':
     form.name.data = student_data.name
@@ -82,23 +91,57 @@ def delete_post(student_id):
       db.session.commit()
     return redirect(url_for('get_results'))
 
+@application.route('/', methods=['GET', 'POST'])
+def register():
+      # If the User is already logged in, don't allow them to try to register
+      if current_user.is_authenticated:
+          flash('Already registered!  Redirecting to your User Profile page...')
+          return redirect(url_for('user.login'))
 
-@application.route('/results/<int:indexId>', methods=['DELETE'])
-def delete_student(indexId):
-  _logger_delete.warning("Inside Delete function")
-  student = Student.query.filter_by(id = indexId).first()
+      form = RegisterForm()
+      if request.method == 'POST' and form.validate_on_submit():
+          new_user = Users(form.email.data, form.password.data)
+          new_user.authenticated = True
+          db.session.add(new_user)
+          db.session.commit()
+          login_user(new_user)
+          flash('Thanks for registering, {}!'.format(new_user.email))
+          return redirect(url_for('add_results'))
+      return render_template('register.html', form=form)
 
-  if not student:
-    _logger_delete.warning("No Students in database")
-    return jsonify({'message':'No user found'})
+@application.route('/login', methods=['GET', 'POST'])
+def login():
+    # If the User is already logged in, don't allow them to try to log in again
+    if current_user.is_authenticated:
+        flash('Already logged in!  Redirecting to your User Profile page...')
+        return redirect(url_for('add_results'))
 
-  db.session.delete(student)
-  _logger_delete.warning("Deleted Student {} and commit to database".format(student))
-  db.session.commit()
+    form = LoginForm()
 
-  return jsonify({'message':'Student found and Deleted'})
+    if request.method == 'POST':
+        if form.validate_on_submit():
+            user = Users.query.filter_by(email=form.email.data).first()
+            if user and user.is_correct_password(form.password.data):
+                user.authenticated = True
+                db.session.add(user)
+                db.session.commit()
+                login_user(user, remember=form.remember_me.data)
+                flash('Thanks for logging in, {}!'.format(current_user.email))
+                return redirect(url_for('add_results'))
+
+        flash('ERROR! Incorrect login credentials.')
+    return render_template('login.html', form=form)
 
 
+@application.route('/logout')
+@login_required
+def logout():
+    user = current_user
+    user.authenticated = False
+    db.session.add(user)
+    db.session.commit()
+    logout_user()
+    flash('Goodbye!')
+    return redirect(url_for('login'))
 
-
-
+#
