@@ -18,16 +18,16 @@ information on PyScaffold see https://pyscaffold.org/.
 Installation
 =============
 *python*
-   $ https://www.python.org/downloads/
+  > $ https://www.python.org/downloads/
 *pip*  
-    ```
-  $ python get-pip.py.
-    ```
+    
+  > $ python get-pip.py.
+    
   
 *pyscaffold*
-    ```
-  $ pip install --upgrade pyscaffold
-    ```
+    
+  > $ pip install --upgrade pyscaffold
+    
 
 How to install flaskbasic on PC
 ===========================
@@ -57,8 +57,8 @@ Deploying to MiniShift
 ======================
 *First install Minishift*
 
-  [Instructions for installation] (https://github.com/minishift/minishift/)
-  welcome-to-minishift
+  **Instructions for installation [https://github.com/minishift/minishift
+  welcome-to-minishift]
 Step 1
     - Download the release for windows [https://github.com/minishift/minishift/releases]
 Step 2
