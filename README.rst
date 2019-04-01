@@ -20,14 +20,14 @@ Installation
 *python*
    $ https://www.python.org/downloads/
 *pip*  
-  ```
+    ```
   $ python get-pip.py.
-  ```
-  ```
+    ```
+  
 *pyscaffold*
-  ```
+    ```
   $ pip install --upgrade pyscaffold
-   ```
+    ```
 
 How to install flaskbasic on PC
 ===========================
