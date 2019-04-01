@@ -8,24 +8,6 @@ import os
 
 
 class Functions():
-<<<<<<< HEAD
-
- # def signup(username, email, newpassword, confirm):
-      #   form = Auth()
-      #   signin = Auth(username=form.username.data, email=form.email.data, newpassword=form.password.data, confirm=form.confirmpassword.data)
-      #   db.session.create(signin)
-      #   db.session.commit()
-
-    def login(email,password) :
-            form = Login()
-            if request.form['password'] == 'password' and request.form['email'] == 'email':
-                session['logged_in'] = True
-                password = functions.generate_password_hash(request.form['password'])
-                user_id = functions.check_user_exists(email, password)
-       
-
-def putData():
-=======
 # 
 #       def signup(username, email, newpassword, confirm):
 #         form = SignUp()
@@ -46,7 +28,6 @@ def putData():
 
       # create the data in the database
       def putData():
->>>>>>> 7a1bb63f8c44cd7ee7e55974cbdf0688420f1a59
             form = StudentForm()
             student = Student(name=form.name.data, physics=form.physics.data, maths=form.maths.data,chemistry=form.chemistry.data,)
             db.session.add(student)
