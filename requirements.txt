@@ -32,4 +32,3 @@ Werkzeug
 wheel
 pytest
 flask-sqlalchemy
-flask-wtf
