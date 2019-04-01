@@ -1,8 +1,8 @@
 language: python
 
 python:
+
   - 3.5
-  - 3.7
 
 
 install:
@@ -12,6 +12,5 @@ install:
 
 
 script:
- - pytest --cov-report
 
-
+ - py.test --cov=tests

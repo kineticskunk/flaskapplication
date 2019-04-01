@@ -52,6 +52,7 @@ def get_results():
 # route that edit the existing data in the database
 
 @application.route('/edit_results/<int:student_id>', methods=['GET','POST'])
+@login_required
 def edit_student(student_id):
   form = StudentForm()
   data = Student.query.get_or_404(student_id)
@@ -60,6 +61,7 @@ def edit_student(student_id):
 # update the existing data in the database
 
 @application.route('/edit_results/<int:student_id>/update_results',methods=['GET','PUT','POST'])
+@login_required
 def update_results(student_id):
   student_data = Student.query.get_or_404(student_id)
   form = StudentForm()
@@ -94,7 +96,7 @@ def register():
       # If the User is already logged in, don't allow them to try to register
       if current_user.is_authenticated:
           flash('Already registered!  Redirecting to your User Profile page...')
-          return redirect(url_for('login'))
+          return redirect(url_for('user.login'))
 
       form = RegisterForm()
       if request.method == 'POST' and form.validate_on_submit():
@@ -134,10 +136,10 @@ def login():
 @application.route('/logout')
 @login_required
 def logout():
-    # user = current_user
-    # user.authenticated = False
-    # db.session.add(user)
-    # db.session.commit()
+    user = current_user
+    user.authenticated = False
+    db.session.add(user)
+    db.session.commit()
     logout_user()
     flash('Goodbye!')
     return redirect(url_for('login'))

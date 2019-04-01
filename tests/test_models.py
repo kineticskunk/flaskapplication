@@ -68,6 +68,7 @@ def test_student_chemistry(new_student):
         assert isinstance(new_student.get_chemistry(), int)
         assert not isinstance(new_student.get_chemistry(), str)
         assert new_student.get_chemistry() == 51
+<<<<<<< HEAD
 
 def test_new_user(new_user):
     """
@@ -77,6 +78,17 @@ def test_new_user(new_user):
     """
     assert new_user.email == 'patkennedy79@gmail.com'
     assert new_user.password == 'FlaskIsAwesome'
+=======
+#
+# def test_new_user(new_user):
+#     """
+#     GIVEN a User model
+#     WHEN a new User is created
+#     THEN check the email,password, authenticated, and role fields are defined correctly
+#     """
+#     assert new_user.email == 'patkennedy79@gmail.com'
+#     assert new_user.password == 'FlaskIsAwesome'
+>>>>>>> 196f7b8d6130410e8be2fc8fbd80c1ed561de6c2
 
 
 def test_user_id(new_user):

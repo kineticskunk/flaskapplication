@@ -2,9 +2,7 @@
 [run]
 branch = True
 source = flaskbasic
-omit = */__init__.py/*
- */ logger.py/*
-  */skeleton.py/*
+omit = 
 
 
 [paths]
