@@ -19,3 +19,8 @@ script:
 # notifications:
 #   email:
 #     - xolani@kineticskunk.com
+deploy:
+  provider: openshift
+  domain:
+  on: master
+  app: flaskapplication
