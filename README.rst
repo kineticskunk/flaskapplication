@@ -93,8 +93,9 @@ Successfully installed Minishift working locally *Thumbs Up*
 
 Commands on deploying onto MINISHIFT
 ====================================
-
+```
 $ oc new-app https://github.com/kineticskunk/flaskapplication.git
 $ oc start-build newflask
+```
 
 
