@@ -1,5 +1,6 @@
 {% extends "layout.html" %}
 
+<<<<<<< HEAD
 {% block content %}
   
 <div class="container">
@@ -71,3 +72,65 @@
 </div>
 </div>
 {% endblock content %}
+=======
+                  {% if form.name.errors %}
+                      {{ form.name(class="form-control form-control-lg is-invalid") }}
+                      <div class="">
+                          {% for error in form.name.errors %}
+                              <span>{{ error }}</span>
+                          {% endfor %}
+                      </div>
+                  {% else %}
+                      {{ form.name(class="form-control form-control-lg") }}
+                  {% endif %}
+              </div>
+              <div class="">
+                  {{ form.physics.label(class="form-control-label") }}
+                  {% if form.physics.errors %}
+                      {{ form.physics(class="form-control form-control-lg is-invalid") }}
+                      <div class="">
+                          {% for error in form.physics.errors %}
+                              <span>{{ error }}</span>
+                          {% endfor %}
+                      </div>
+                  {% else %}
+                      {{ form.physics(class="form-control form-control-lg") }}
+                  {% endif %}
+              </div>
+              <div class="">
+                  {{ form.maths.label(class="form-control-label") }}
+                  {% if form.maths.errors %}
+                      {{ form.maths(class="form-control form-control-lg is-invalid") }}
+                      <div class="">
+                          {% for error in form.maths.errors %}
+                              <span>{{ error }}</span>
+                          {% endfor %}
+                      </div>
+                  {% else %}
+                      {{ form.maths(class="form-control form-control-lg") }}
+                  {% endif %}
+              </div>
+              <div class="">
+                  {{ form.chemistry.label(class="form-control-label") }}
+                  {% if form.chemistry.errors %}
+                      {{ form.chemistry(class="form-control form-control-lg is-invalid") }}
+                      <div class="">
+                          {% for error in form.chemistry.errors %}
+                              <span>{{ error }}</span>
+                          {% endfor %}
+                      </div>
+                  {% else %}
+                      {{ form.chemistry(class="form-control form-control-lg") }}
+                  {% endif %}
+              </div>
+          </fieldset>
+          <div class="">
+              {{ form.submit(class="btn btn-outline-info") }}
+          </div>
+      </form>
+      <h3><a href="/results">VIEW RESULTS</a></h3>
+      <h3><a href="/logout">LOG OUT</a></h3>
+  </div>
+</body>
+</html>
+>>>>>>> 9f105c3222c52634536956cdcf87a4698a180166

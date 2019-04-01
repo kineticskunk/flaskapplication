@@ -1,6 +1,7 @@
-from wsgi import db
-from wsgi import Student
-import os
+
+from src.flaskbasic import application ,db
+from src.flaskbasic.form import *
+from src.flaskbasic.models import *
 
 
 db.create_all()

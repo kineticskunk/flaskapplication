@@ -1,12 +1,13 @@
-# Referencing the modules
-from flask import Flask,render_template, redirect, url_for,request, jsonify, abort,request
+from flask import Flask,render_template, redirect, url_for,request, jsonify, abort,request,flash
 from flask_sqlalchemy import SQLAlchemy
 from src.flaskbasic import *
-from src.flaskbasic.form import StudentForm
-# from src.flaskbasic.form import SignUp
-from src.flaskbasic.models import Student
+from src.flaskbasic.form import StudentForm, RegisterForm, LoginForm
+from src.flaskbasic.models import Student, Users
+from flask_login import login_user, current_user, login_required, logout_user
+
 import sys
 import logging
+
 
 # logging.basicConfig(filename='app.log', filemode='w', format='%(asctime)s - %(levelname)s - %(message)s',datefmt='%d-%b-%y %H:%M:%S')
 _logger_adding = logging.getLogger('Adding results')
@@ -15,20 +16,14 @@ _logger_update = logging.getLogger('Update results')
 _logger_delete = logging.getLogger('Delete results')
 
 
-# route that renders when the page loads
+# route that renders when the page loads, register a user/ admin
+@login.user_loader
+def load_user(user_id):
+    return Users.query.filter(Users.id == int(user_id)).first()
 
-# @application.route('/', methods=['GET','POST'])
-# def signup():
-#   hashed_password = bcypt.generate_password_hash(form.password.data).decode('utf-8')
-#   user = username(form.username.data, email= form.email.data, password = hashed_password)
-#   db.session.add(user)
-#   db.session.commit()
-#   # form = SignUp()
-
-#   return render_template('home.html', form=form)
-
-
-@application.route('/home', methods=['GET','POST'])
+# add student marks
+@application.route('/add_results', methods=['GET','POST'])
+# @login_required
 def add_results():
     form = StudentForm()
     _logger_adding.warning("Inside Add Results function")
@@ -74,6 +69,7 @@ def update_results(student_id):
     student_data.maths = form.maths.data
     student_data.chemistry = form.chemistry.data
     db.session.commit()
+    flash('Your results were successfully Updated')
     return redirect(url_for('edit_student', student_id=student_data.id))
   elif request.method == 'GET':
     form.name.data = student_data.name
@@ -93,76 +89,57 @@ def delete_post(student_id):
       db.session.commit()
     return redirect(url_for('get_results'))
 
+@application.route('/', methods=['GET', 'POST'])
+def register():
+      # If the User is already logged in, don't allow them to try to register
+      if current_user.is_authenticated:
+          flash('Already registered!  Redirecting to your User Profile page...')
+          return redirect(url_for('login'))
 
-@application.route('/login', methods=['POST'])
-def do_admin_login():
-    if request.form['password'] == 'password' and request.form['username'] == 'admin':
-        session['logged_in'] = True
-    else:
-        flash('wrong password!')
-    return redirect(url_for('login'))
+      form = RegisterForm()
+      if request.method == 'POST' and form.validate_on_submit():
+          new_user = Users(form.email.data, form.password.data)
+          new_user.authenticated = True
+          db.session.add(new_user)
+          db.session.commit()
+          login_user(new_user)
+          flash('Thanks for registering, {}!'.format(new_user.email))
+          return redirect(url_for('add_results'))
+      return render_template('register.html', form=form)
 
- 
-
-
-@application.route('/results/<int:indexId>', methods=['DELETE'])
-def delete_student(indexId):
-  _logger_delete.warning("Inside Delete function")
-  student = Student.query.filter_by(id = indexId).first()
-
-  if not student:
-    _logger_delete.warning("No Students in database")
-    return jsonify({'message':'No user found'})
-
-  db.session.delete(student)
-  _logger_delete.warning("Deleted Student {} and commit to database".format(student))
-  db.session.commit()
-
-  return jsonify({'message':'Student found and Deleted'})
-
-
-# @application.route('/signup', methods=['GET', 'POST'])
-# def signup():
-#   form = SignUp()
-
-#   return render_template('signup.html', form=form)
-
-# allow admin to login
 @application.route('/login', methods=['GET', 'POST'])
 def login():
-    form = Login()
-        # if user_id:
-        #      session['username'] = username
-        #      session['id'] = user_id
-        #      functions.store_last_login(session['id'])
-        #      return redirect('/results')
-        # else:
-        #      flash('username/Password incorrect')
+    # If the User is already logged in, don't allow them to try to log in again
+    if current_user.is_authenticated:
+        flash('Already logged in!  Redirecting to your User Profile page...')
+        return redirect(url_for('add_results'))
 
+    form = LoginForm()
+
+    if request.method == 'POST':
+        if form.validate_on_submit():
+            user = Users.query.filter_by(email=form.email.data).first()
+            if user and user.is_correct_password(form.password.data):
+                user.authenticated = True
+                db.session.add(user)
+                db.session.commit()
+                login_user(user, remember=form.remember_me.data)
+                flash('Thanks for logging in, {}!'.format(current_user.email))
+                return redirect(url_for('add_results'))
+
+        flash('ERROR! Incorrect login credentials.')
     return render_template('login.html', form=form)
 
 
+@application.route('/logout')
+@login_required
+def logout():
+    # user = current_user
+    # user.authenticated = False
+    # db.session.add(user)
+    # db.session.commit()
+    logout_user()
+    flash('Goodbye!')
+    return redirect(url_for('login'))
 
-#register a person
-
-# def add_results():
-#     form = StudentForm()
-#     _logger_adding.warning("Inside Add Results function")
-#     _logger_adding.warning("Student form waiting for Input")
-#     if form.validate_on_submit():
-#       _logger_adding.warning("When form is submitted with data")
-#       student = Student(name=form.name.data, physics=form.physics.data, maths=form.maths.data,chemistry=form.chemistry.data,)
-#       _logger_adding.warning("Student: {} , physics: {} , maths: {}, chemistry: {}".format(form.name.data,form.physics.data,form.maths.data,form.chemistry.data))
-#       db.session.add(student)
-#       _logger_adding.warning('student results was added to database')
-#       db.session.commit()
-#       _logger_adding.warning("database commit")
-#       return redirect(url_for("add_results"))
-#     else:
-#       return render_template('home.html', form=form)
-
-
-
-
-
-
+#
