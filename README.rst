@@ -25,14 +25,14 @@ Installation
     ```
   
 *pyscaffold*
-    ```python
+    ```
   $ pip install --upgrade pyscaffold
     ```
 
 How to install flaskbasic on PC
 ===========================
 *Clone repository* 
-  ```python
+  ```
   $ git clone https://github.com/kineticskunk/flaskapplication.git
   $ git ckeckout new-branch-name
   $ git fetch
@@ -40,11 +40,11 @@ How to install flaskbasic on PC
   ```
 
 *Get into pip environment*
-  ```python
+  ```
   $ pipenv install
   ```
 *Using Pipenv shell*
-  ```python
+  ```
   $ pipenv shell
   ```
 
