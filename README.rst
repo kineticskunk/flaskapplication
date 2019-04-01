@@ -20,18 +20,24 @@ Installation
 *python*
    $ https://www.python.org/downloads/
 *pip*  
+  ```
   $ python get-pip.py.
+  ```
+ ```
 *pyscaffold*
+ ```
   $ pip install --upgrade pyscaffold
 
 
 How to install flaskbasic on PC
 ===========================
 *Clone repository* 
+  ```
   $ git clone https://github.com/DarrenMun/newflask
   $ git ckeckout new-branch-name
   $ git fetch
   $ git pull
+  ```
 
 *Get into pip environment*
   ```
