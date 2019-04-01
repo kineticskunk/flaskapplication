@@ -31,8 +31,9 @@ Installation
 
 How to install flaskbasic on PC
 ===========================
-*Clone repository* 
   ```
+  *Clone repository* 
+  
   $ git clone <https://github.com/kineticskunk/flaskapplication.git>
   $ git ckeckout new-branch-name
   $ git fetch
@@ -92,7 +93,8 @@ Successfully installed Minishift working locally *Thumbs Up*
 
 Commands on deploying onto MINISHIFT
 ====================================
-
+```
 $ oc new-app https://github.com/kineticskunk/flaskapplication.git
 $ oc start-build newflask
+```
 
