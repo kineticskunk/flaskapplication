@@ -18,9 +18,9 @@ information on PyScaffold see https://pyscaffold.org/.
 Installation
 =============
 *python*
-  $ https://www.python.org/downloads/
+ > $ https://www.python.org/downloads/
 *pip*  
-    ```python
+    ```
   $ python get-pip.py.
     ```
   
