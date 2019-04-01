@@ -6,7 +6,6 @@ verify_ssl = true
 [dev-packages]
 
 [packages]
-pipenv = "*"
 gunicorn = "*"
 itsdangerous = "*"
 pytest = "*"
@@ -14,19 +13,12 @@ SQLAlchemy = "*"
 Flask-WTF = "*"
 Flask-Bcrypt = "*"
 Flask-Login = "*"
-Flask-Mail = "*"
 Flask = "*"
 Flask-Testing = "*"
 Jinja2 = "*"
 MarkupSafe = "*"
 Flask-SQLAlchemy = "*"
 Werkzeug = "*"
-pytest-cov = "*"
-coverage = "*"
-flask-bycrypt = "0.7.1"
-pytest-mock = "*"
-mock = "*"
-flask-bycrpt = "*"
 
 [requires]
 python_version = "3.7"
