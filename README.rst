@@ -32,21 +32,27 @@ Installation
 How to install flaskbasic on PC
 ===========================
 *Clone repository* 
-  ```
+  ``
   $ git clone https://github.com/DarrenMun/newflask
+  ``
+  ``
   $ git ckeckout new-branch-name
+  ``
+  ``
   $ git fetch
+  ``
+  ``
   $ git pull
-  ```
+  ``
 
 *Get into pip environment*
-  ```
+  ``
   $ pipenv install
-  ```
+  ``
 *Using Pipenv shell*
-  ```
+  ``
   $ pipenv shell
-  ```
+  ``
 
 
 Run application local on your PC
