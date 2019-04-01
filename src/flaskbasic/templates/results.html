@@ -2,9 +2,9 @@
 {% block content %}
 <div class="container">
 
-  
+
   <div id="results">
-    <table class="table table-dark table-striped" >
+    <table class="table table-dark table-striped">
       <tr>
         <th>Edit Student</th>
         <th>Student Id</th>
@@ -20,12 +20,12 @@
           <td><a href='/edit_results/{{x.id}}' style="color: #FFFFFF;">Edit {{x.name}}</a></td>
           <td>{{ x.id }}</td>
           <td>{{ x.name }}</td>
-          <td>{{ x.physics }}</td> 
-          <td>{{ x.maths }}</td> 
+          <td>{{ x.physics }}</td>
+          <td>{{ x.maths }}</td>
           <td>{{ x.chemistry }}</td>
-        </div>
+      </div>
       </tr>
       {% endfor %}
     </table>
   </div>
-    {% endblock content %}
+  {% endblock content %}
