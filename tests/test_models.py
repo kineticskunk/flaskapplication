@@ -1,4 +1,5 @@
 from src.flaskbasic import models
+
 def test_new_student(new_student):
     """
     GIVEN a Student model
@@ -17,10 +18,10 @@ def test_student_id(new_student):
     WHEN the ID of the user is defined to a value
     THEN check the user ID returns a string (and not an integer) as needed by Flask-WTF
     """
-    new_student.id = 17
+    new_student.id = 1
     assert isinstance(new_student.get_id(), str)
     assert not isinstance(new_student.get_id(), int)
-    assert new_student.get_id() == "17"
+    assert new_student.get_id() == "1"
 
 
 def test_student_name(new_student):
@@ -67,3 +68,24 @@ def test_student_chemistry(new_student):
         assert isinstance(new_student.get_chemistry(), int)
         assert not isinstance(new_student.get_chemistry(), str)
         assert new_student.get_chemistry() == 51
+
+def test_new_user(new_user):
+    """
+    GIVEN a User model
+    WHEN a new User is created
+    THEN check the email,password, authenticated, and role fields are defined correctly
+    """
+    assert new_user.email == 'patkennedy79@gmail.com'
+    assert new_user.password == 'FlaskIsAwesome'
+
+
+def test_user_id(new_user):
+    """
+    GIVEN an existing User
+    WHEN the ID of the user is defined to a value
+    THEN check the user ID returns a string (and not an integer) as needed by Flask-WTF
+    """
+    new_user.id = 17
+    assert isinstance(new_user.get_id(), str)
+    assert not isinstance(new_user.get_id(), int)
+    assert new_user.get_id() == "17"

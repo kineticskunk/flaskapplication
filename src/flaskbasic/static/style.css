@@ -33,43 +33,43 @@ li {
 }
 body{
     text-align: center;
-    background-color: red;
+    background-color:  #95a5a6;
   }
-  
-  
+
+/* 
   .days{
     display: inline-block;
-  }
-  
+  } */
+
   /* h1{
     text-align: center ;
     background-color: aquamarine;
-    
+
   }  */
 
-  
+
   .container {
     position: relative;
     width: 100%;
     max-width: 960px;
     margin: 0 auto;
     padding: 0 20px;
-    box-sizing: border-box; 
-    
+    box-sizing: border-box;
+
 }
   .column,
   .columns {
     width: 100%;
     float: left;
     box-sizing: border-box; }
-  
+
   /* For devices larger than 400px */
   @media (min-width: 400px) {
     .container {
       width: 100%;
       padding: 0; }
   }
-  
+
   /* For devices larger than 550px */
   @media (min-width: 550px) {
     .container {
@@ -80,7 +80,7 @@ body{
     .column:first-child,
     .columns:first-child {
       margin-left: 0; }
-  
+
     .one.column,
     .one.columns                    { width: 4.66666666667%; }
     .two.columns                    { width: 13.3333333333%; }
@@ -94,12 +94,12 @@ body{
     .ten.columns                    { width: 82.6666666667%; }
     .eleven.columns                 { width: 91.3333333333%; }
     .twelve.columns                 { width: 100%; margin-left: 0; }
-  
+
     .one-third.column               { width: 30.6666666667%; }
     .two-thirds.column              { width: 65.3333333333%; }
-  
+
     .one-half.column                { width: 48%; }
-  
+
     /* Offsets */
     .offset-by-one.column,
     .offset-by-one.columns          { margin-left: 8.66666666667%; }
@@ -123,18 +123,18 @@ body{
     .offset-by-ten.columns          { margin-left: 86.6666666667%; }
     .offset-by-eleven.column,
     .offset-by-eleven.columns       { margin-left: 95.3333333333%; }
-  
+
     .offset-by-one-third.column,
     .offset-by-one-third.columns    { margin-left: 34.6666666667%; }
     .offset-by-two-thirds.column,
     .offset-by-two-thirds.columns   { margin-left: 69.3333333333%; }
-  
+
     .offset-by-one-half.column,
     .offset-by-one-half.columns     { margin-left: 52%; }
-  
+
   }
-  
-  
+
+
   /* Base Styles
   –––––––––––––––––––––––––––––––––––––––––––––––––– */
   /* NOTE
@@ -148,8 +148,8 @@ body{
     font-weight: 400;
     font-family: "Raleway", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
     color: #222; }
-  
-  
+
+
   /* Typography
   –––––––––––––––––––––––––––––––––––––––––––––––––– */
   h1, h2, h3, h4, h5, h6 {
@@ -162,7 +162,7 @@ body{
   h4 { font-size: 2.4rem; line-height: 1.35; letter-spacing: -.08rem; }
   h5 { font-size: 1.8rem; line-height: 1.5;  letter-spacing: -.05rem; }
   h6 { font-size: 1.5rem; line-height: 1.6;  letter-spacing: 0; }
-  
+
   /* Larger than phablet */
   @media (min-width: 550px) {
     h1 { font-size: 5.0rem; }
@@ -172,19 +172,19 @@ body{
     h5 { font-size: 2.4rem; }
     h6 { font-size: 1.5rem; }
   }
-  
+
   p {
     margin-top: 0; }
-  
-  
+
+
   /* Links
   –––––––––––––––––––––––––––––––––––––––––––––––––– */
   a {
     color: #757D75; }
   a:hover {
     color: #757D75; }
-  
-  
+
+
   /* Buttons
   –––––––––––––––––––––––––––––––––––––––––––––––––– */
   .button,
@@ -243,8 +243,8 @@ body{
     color: #FFF;
     background-color: #1EAEDB;
     border-color: #1EAEDB; }
-  
-  
+
+
   /* Forms
   –––––––––––––––––––––––––––––––––––––––––––––––––– */
   input[type="email"],
@@ -305,8 +305,8 @@ body{
     display: inline-block;
     margin-left: .5rem;
     font-weight: normal; }
-  
-  
+
+
   /* Lists
   –––––––––––––––––––––––––––––––––––––––––––––––––– */
   ul {
@@ -324,8 +324,8 @@ body{
     font-size: 90%; }
   li {
     margin-bottom: 1rem; }
-  
-  
+
+
   /* Code
   –––––––––––––––––––––––––––––––––––––––––––––––––– */
   code {
@@ -340,8 +340,8 @@ body{
     display: block;
     padding: 1rem 1.5rem;
     white-space: pre; }
-  
-  
+
+
   /* Tables
   –––––––––––––––––––––––––––––––––––––––––––––––––– */
   th,
@@ -355,8 +355,8 @@ body{
   th:last-child,
   td:last-child {
     padding-right: 0; }
-  
-  
+
+
   /* Spacing
   –––––––––––––––––––––––––––––––––––––––––––––––––– */
   button,
@@ -377,8 +377,8 @@ body{
   ol,
   form {
     margin-bottom: 2.5rem; }
-  
-  
+
+
   /* Utilities
   –––––––––––––––––––––––––––––––––––––––––––––––––– */
   .u-full-width {
@@ -391,8 +391,8 @@ body{
     float: right; }
   .u-pull-left {
     float: left; }
-  
-  
+
+
   /* Misc
   –––––––––––––––––––––––––––––––––––––––––––––––––– */
   hr {
@@ -400,11 +400,11 @@ body{
     margin-bottom: 3.5rem;
     border-width: 0;
     border-top: 1px solid #E1E1E1; }
-  
-  
+
+
   /* Clearing
   –––––––––––––––––––––––––––––––––––––––––––––––––– */
-  
+
   /* Self Clearing Goodness */
   .container:after,
   .row:after,
@@ -412,8 +412,8 @@ body{
     content: "";
     display: table;
     clear: both; }
-  
-  
+
+
   /* Media Queries
   –––––––––––––––––––––––––––––––––––––––––––––––––– */
   /*
@@ -422,29 +422,29 @@ body{
   on small devices, paste the mobile query code up in the buttons section and style it
   there.
   */
-  
+
   @media (min-width: 412px) {
     body{
       width: 100%;
     }
   }
-  
-  
+
+
   /* Larger than mobile */
   @media (min-width: 360px) {
     body{
       width: 100%
     }
   }
-  
+
   /* Larger than phablet (also point when grid becomes active) */
   @media (min-width: 550px) {}
-  
+
   /* Larger than tablet */
   @media (min-width: 750px) {}
-  
+
   /* Larger than desktop */
   @media (min-width: 1000px) {}
-  
+
   /* Larger than Desktop HD */
   @media (min-width: 1200px) {}
