@@ -4,17 +4,13 @@ python:
 
   - 3.5
 
+env:
+  - pipenv
 
 install:
-  - pip install -r requirements.txt
   - pipenv install
-  
+
 
 script:
- - py.test --cov=tests
 
-# deploy:
-#   provider: openshift
-#   user: "Ludwej"
-#   password: "12345" # can be encrypted
-#   domain: "YOUR OPENSHIFT DOMAIN"
+ - py.test --cov=tests
