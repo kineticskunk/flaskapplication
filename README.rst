@@ -6,7 +6,8 @@ Flaskbasic Python Flask App
 
 Description
 ===========
-Flaskbasic was created by the Dev team at Kinetic Skunk. It is built using python, flask and sqlite to store student results in a database. The aim is to keep records of every students results and be able to view them.  
+Flaskbasic was created by the Dev team at Kinetic Skunk. It is built using python, flask and sqlite to store student results in a database. The aim is to keep records of every students results and be able to view them. 
+The app first renders the registration page where you have to register in order to enter the student records.
 
 
 Note

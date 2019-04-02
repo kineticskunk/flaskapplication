@@ -25,7 +25,7 @@ def load_user(user_id):
 
 # add student marks
 @application.route('/add_results', methods=['GET','POST'])
-# @login_required
+@login_required
 def add_results():
     form = StudentForm()
     _logger_adding.warning("Inside Add Results function")
