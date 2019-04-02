@@ -17,4 +17,4 @@ script:
 deploy:
   provider: openshift
   ...
-  on: master
+  on: ludwe
