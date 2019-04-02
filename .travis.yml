@@ -4,6 +4,8 @@ python:
 
   - 3.5
 
+env:
+  - pipenv
 
   env:
   - pipenv
@@ -11,15 +13,8 @@ python:
 
 install:
   - pipenv install
- 
-
 
 
 script:
 
  - py.test --cov=tests
-
-
-# notifications:
-#   email:
-#     - xolani@kineticskunk.com
