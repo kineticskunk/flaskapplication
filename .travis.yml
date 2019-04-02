@@ -20,8 +20,17 @@ script:
  - py.test --cov=tests
 
 deploy:
+  on:
+    all_branches: true
   provider: minishift
   user: "developer"
   password: "12345" # can be encrypted
   domain: "https://192.168.99.100:8443/console/catalog"
+  app:flaskapplication
+
+  app:
+   master: my_app_production
+
+  
+  
 
