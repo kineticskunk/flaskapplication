@@ -74,23 +74,6 @@ def test_new_user(new_user):
     """
     GIVEN a User model
     WHEN a new User is created
-<<<<<<< HEAD
-    THEN check the email,password, authenticated, and role fields are defined correctly
-    """
-    assert new_user.email == 'patkennedy79@gmail.com'
-    assert new_user.password == 'FlaskIsAwesome'
-
-#
-# def test_new_user(new_user):
-#     """
-#     GIVEN a User model
-#     WHEN a new User is created
-#     THEN check the email,password, authenticated, and role fields are defined correctly
-#     """
-#     assert new_user.email == 'patkennedy79@gmail.com'
-#     assert new_user.password == 'FlaskIsAwesome'
-
-=======
     THEN check the email, hashed_password, authenticated, and role fields are defined correctly
     """
     assert new_user.email == 'mplwando@gmail.com'
@@ -110,7 +93,6 @@ def test_setting_password(new_user):
     assert new_user.is_correct_password('MyNewPassword')
     assert not new_user.is_correct_password('MyNewPassword2')
     assert not new_user.is_correct_password('FlaskIsAwesome')
->>>>>>> 8d2674592af4686d6403f64f908bfa2ff2ab3417
 
 
 def test_user_id(new_user):
