@@ -33,13 +33,15 @@ How to install flaskbasic on PC
   $ git fetch
   $ git pull
 
-*Get into pip environment*
-  $ pipenv install
-*Using Pipenv shell*
-  $cd into project folder
+*Creating pip environment*
+  $ pip install pipenv
+*Using Pipenv and getting into shell*
+  $ cd into project folder
   $ pipenv shell
+
+  *If a requirements.txt file already exists
   $ pipenv install -r requirements.txt
-  $ pipenv lock 
+  $ pipenv lock
 
 Run application local on your PC
 ================================
