@@ -10,7 +10,11 @@ install:
   - pipenv install
   
 
-
 script:
-
  - py.test --cov=tests
+
+deploy:
+  provider: openshift
+  user: "Ludwej"
+  password: "12345" # can be encrypted
+  domain: "YOUR OPENSHIFT DOMAIN"
