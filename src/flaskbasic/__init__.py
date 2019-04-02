@@ -38,6 +38,15 @@ def initialize_extensions(application):
 
 
 
+def create_app(config_filename=None):
+    app = Flask(__name__, instance_relative_config=True)
+    app.config.from_pyfile(config_filename)
+    initialize_extensions(app)
+    register_blueprints(app)
+    return app
+
+
+
 from src.flaskbasic.wsgi import *
 
 
