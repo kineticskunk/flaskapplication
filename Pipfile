@@ -19,13 +19,8 @@ Jinja2 = "*"
 MarkupSafe = "*"
 Flask-SQLAlchemy = "*"
 Werkzeug = "*"
-<<<<<<< HEAD
 pytest-cov = "*"
 coverage = "*"
-travis = "*"
-=======
-mock = "*"
->>>>>>> 7164c3c1ca94ac975d497a65144579a9cb5da363
 
 [requires]
 python_version = "3.7"
