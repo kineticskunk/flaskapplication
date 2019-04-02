@@ -14,7 +14,3 @@ script:
 
  - py.test --cov=tests
 
-deploy:
-  provider: openshift
-  ...
-  on: ludwe
