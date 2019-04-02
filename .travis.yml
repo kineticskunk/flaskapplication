@@ -9,7 +9,7 @@ env:
 
 install:
   - pipenv install
-
+  - pipenv install --skip-lock
 
 script:
 
