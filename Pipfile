@@ -21,6 +21,7 @@ Flask-SQLAlchemy = "*"
 Werkzeug = "*"
 pytest-cov = "*"
 mock = "*"
+travis = "*"
 
 [requires]
 python_version = "3.7"

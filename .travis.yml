@@ -29,7 +29,7 @@ deploy:
   app:flaskapplication
 
   app:
-   master: my_app_production
+   auth: my_app_branch
 
   
   
