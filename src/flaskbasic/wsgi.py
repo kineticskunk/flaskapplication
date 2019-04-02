@@ -1,4 +1,6 @@
 from flask import Flask,render_template, redirect, url_for,request, jsonify, abort,request,flash
+# from flask_login import login_user, current_user, logout_user
+
 from flask_sqlalchemy import SQLAlchemy
 from src.flaskbasic import *
 from src.flaskbasic.form import StudentForm, RegisterForm, LoginForm
@@ -144,4 +146,31 @@ def logout():
     flash('Goodbye!')
     return redirect(url_for('login'))
 
-#
+# logout route
+
+
+
+# allow admin to login
+# @application.route('/login', methods=['GET', 'POST'])
+# def login():
+#     form = Login()
+#         # if user_id:
+#         #      session['username'] = username
+#         #      session['id'] = user_id
+#         #      functions.store_last_login(session['id'])
+#         #      return redirect('/results')
+#         # else:
+#         #      flash('username/Password incorrect')
+
+#     return render_template('login.html', form=form)
+
+
+
+#register a person
+
+
+
+
+
+
+

@@ -18,25 +18,36 @@ information on PyScaffold see https://pyscaffold.org/.
 Installation
 =============
 *python*
-   $ https://www.python.org/downloads/
+  $ https://www.python.org/downloads/
 *pip*  
+  ```
   $ python get-pip.py.
+  ```
+  
 *pyscaffold*
+    ```
   $ pip install --upgrade pyscaffold
-
+    ```
 
 How to install flaskbasic on PC
 ===========================
-*Clone repository* 
-  $ git clone https://github.com/DarrenMun/newflask
+  ```
+  *Clone repository* 
+  
+  $ git clone https://github.com/kineticskunk/flaskapplication.git
   $ git ckeckout new-branch-name
   $ git fetch
   $ git pull
+  ```
 
 *Get into pip environment*
+  ```
   $ pipenv install
+  ```
 *Using Pipenv shell*
+  ```
   $ pipenv shell
+  ```
 
 
 Run application local on your PC
@@ -47,10 +58,10 @@ Deploying to MiniShift
 ======================
 *First install Minishift*
 
-  **Instructions for installation [https://github.com/minishift/minishift
-  welcome-to-minishift]
+  **Instructions for installation https://github.com/minishift/minishift
+  welcome-to-minishift
 Step 1
-    - Download the release for windows [https://github.com/minishift/minishift/releases]
+    - Download the release for windows https://github.com/minishift/minishift/releases
 Step 2
     - Download VM software VirtualBox 
     [https://www.virtualbox.org/wiki/Downloads]
@@ -82,7 +93,9 @@ Successfully installed Minishift working locally *Thumbs Up*
 
 Commands on deploying onto MINISHIFT
 ====================================
-
-$ oc new-app https://github.com/DarrenMun/newflask
+```
+$ oc new-app https://github.com/kineticskunk/flaskapplication.git
 $ oc start-build newflask
+```
+
 
