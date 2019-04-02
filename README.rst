@@ -6,7 +6,7 @@ Flaskbasic Python Flask App
 
 Description
 ===========
-Flaskbasic was created by the Dev team at Kinetic Skunk. It is built using python, flask and sqlite to store student results in a database. The aim is to keep records of every students results and be able to view them.  
+Flaskbasic was created by the Dev team at Kinetic Skunk. It is built using python, flask and sqlite to store student results in a database. The aim is to keep records of every students results and be able to view them.
 
 
 Note
@@ -19,7 +19,7 @@ Installation
 =============
 *python*
    $ https://www.python.org/downloads/
-*pip*  
+*pip*
   $ python get-pip.py.
 *pyscaffold*
   $ pip install --upgrade pyscaffold
@@ -27,23 +27,27 @@ Installation
 
 How to install flaskbasic on PC
 ===========================
-*Clone repository* 
+*Clone repository*
   $ git clone https://github.com/DarrenMun/newflask
   $ git ckeckout new-branch-name
   $ git fetch
   $ git pull
 
-*Get into pip environment*
-  $ pipenv install
-*Using Pipenv shell*
+*Creating pip environment*
+  $ pip install pipenv
+*Using Pipenv and getting into shell*
+  $ cd into project folder
   $ pipenv shell
 
+  *If a requirements.txt file already exists
+  $ pipenv install -r requirements.txt
+  $ pipenv lock
 
 Run application local on your PC
 ================================
 python application.py
 
-Deploying to MiniShift  
+Deploying to MiniShift
 ======================
 *First install Minishift*
 
@@ -52,12 +56,12 @@ Deploying to MiniShift
 Step 1
     - Download the release for windows [https://github.com/minishift/minishift/releases]
 Step 2
-    - Download VM software VirtualBox 
+    - Download VM software VirtualBox
     [https://www.virtualbox.org/wiki/Downloads]
         - No need to Create a Virtual Machine/Will automatically be created
 Step 3
     - Open minishift extract file, CD to extracted file path with CMD
-        - Run to start command 
+        - Run to start command
         $ minishift start --vm-driver virtualbox
             - Will download and install the Openshift Binary 'oc' version
             - Will download minishift-centos-iso 300 - 400 mb
@@ -69,9 +73,9 @@ Step 5
     - Logging in
         - Username : developer
         - Password : <any value>
-    
+
     - Admin Login
-        - In Terminal paste (oc login -u system:admin) if not working 
+        - In Terminal paste (oc login -u system:admin) if not working
         - Paste : (@FOR /f "tokens=*" %i IN ('minishift oc-env') DO @call %i)
         - Set your user as an admin
             - Paste in terminal (oc adm policy add-cluster-role-to-user cluster-admin "YOUR NAME")
@@ -85,4 +89,3 @@ Commands on deploying onto MINISHIFT
 
 $ oc new-app https://github.com/DarrenMun/newflask
 $ oc start-build newflask
-

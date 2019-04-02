@@ -68,17 +68,18 @@ def test_student_chemistry(new_student):
         assert isinstance(new_student.get_chemistry(), int)
         assert not isinstance(new_student.get_chemistry(), str)
         assert new_student.get_chemistry() == 51
-<<<<<<< HEAD
+
 
 def test_new_user(new_user):
     """
     GIVEN a User model
     WHEN a new User is created
+<<<<<<< HEAD
     THEN check the email,password, authenticated, and role fields are defined correctly
     """
     assert new_user.email == 'patkennedy79@gmail.com'
     assert new_user.password == 'FlaskIsAwesome'
-=======
+
 #
 # def test_new_user(new_user):
 #     """
@@ -88,7 +89,28 @@ def test_new_user(new_user):
 #     """
 #     assert new_user.email == 'patkennedy79@gmail.com'
 #     assert new_user.password == 'FlaskIsAwesome'
->>>>>>> 196f7b8d6130410e8be2fc8fbd80c1ed561de6c2
+
+=======
+    THEN check the email, hashed_password, authenticated, and role fields are defined correctly
+    """
+    assert new_user.email == 'mplwando@gmail.com'
+    assert new_user.hashed_password != 'FlaskIsAwesome'
+    assert not new_user.authenticated
+    assert new_user.role == 'user'
+
+
+def test_setting_password(new_user):
+    """
+    GIVEN an existing User
+    WHEN the password for the user is set
+    THEN check the password is stored correctly and not as plaintext
+    """
+    new_user.set_password('MyNewPassword')
+    assert new_user.hashed_password != 'MyNewPassword'
+    assert new_user.is_correct_password('MyNewPassword')
+    assert not new_user.is_correct_password('MyNewPassword2')
+    assert not new_user.is_correct_password('FlaskIsAwesome')
+>>>>>>> 8d2674592af4686d6403f64f908bfa2ff2ab3417
 
 
 def test_user_id(new_user):

@@ -6,10 +6,10 @@ verify_ssl = true
 [dev-packages]
 
 [packages]
+sqlalchemy = "*"
 gunicorn = "*"
 itsdangerous = "*"
 pytest = "*"
-SQLAlchemy = "*"
 Flask-WTF = "*"
 Flask-Bcrypt = "*"
 Flask-Login = "*"
@@ -19,7 +19,6 @@ Jinja2 = "*"
 MarkupSafe = "*"
 Flask-SQLAlchemy = "*"
 Werkzeug = "*"
-pytest-cov = "*"
 
 [requires]
 python_version = "3.7"

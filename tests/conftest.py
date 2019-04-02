@@ -21,8 +21,9 @@ def new_student():
 
 @pytest.fixture(scope='module')
 def new_user():
-    user = Users('lwando','patkennedy79@gmail.com', 'FlaskIsAwesome')
+    user = Users('mplwando@gmail.com', 'FlaskIsAwesome')
     return user
+
 
 @pytest.fixture(scope='module')
 def test_client():
@@ -54,8 +55,8 @@ def init_database():
     db.session.add(student2)
 
     # Insert user data
-    user1 = Users(email='patkennedy79@gmail.com', plaintext_password='FlaskIsAwesome')
-    user2 = Users(email='kennedyfamilyrecipes@gmail.com', plaintext_password='PaSsWoRd')
+    user1 = Users(email='mplwando@gmail.com', plaintext_password='FlaskIsAwesome')
+    user2 = Users(email='ludwe@kineticskunk.com', plaintext_password='PaSsWoRd')
     db.session.add(user1)
     db.session.add(user2)
 
