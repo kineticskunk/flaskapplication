@@ -21,3 +21,4 @@ deploy:
   password: L!kh@ny312
   app: elldee
   domain: flasky
+  on: lwando
