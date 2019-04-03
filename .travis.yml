@@ -1,35 +1,17 @@
 language: python
-
 python:
-
-  - 3.5
-
-env:
-  - pipenv
-
-  env:
-  - pipenv
-
-
+  - 3.5.6
 install:
   - pipenv install
-
-
-script:
-
- - py.test --cov=tests
+script: py.test --cov=tests
 
 deploy:
-  on:
-    all_branches: true
   provider: minishift
-  user: "developer"
-  # password: "12345" # can be encrypted
-  domain: "https://192.168.99.100:8443/console/catalog"
-  app:flaskapplication
-
-  app:
-   auth: my_app_branch
+  user: $developer
+  password:
+  app: flaskapplication
+  domain: https://192.168.99.100:8443/console
+  on: auth
 
   
   
