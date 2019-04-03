@@ -6,12 +6,12 @@ install:
 script: py.test --cov=tests
 
 deploy:
-  provider: minishift
-  user: $developer
-  password:
+  provider: openshift
+  user: lwando92
+  password: L!kh@ny312
   app: flaskapplication
   domain: https://192.168.99.100:8443/console
-  on: auth
+  on: lwando
 
   
   
