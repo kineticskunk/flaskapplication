@@ -20,6 +20,9 @@ MarkupSafe = "*"
 Flask-SQLAlchemy = "*"
 Werkzeug = "*"
 pytest-cov = "*"
+mock = "*"
+travis = "*"
+gem = "*"
 
 [requires]
 python_version = "3.7"

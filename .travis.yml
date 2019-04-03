@@ -1,16 +1,18 @@
 language: python
-
 python:
-
-  - 3.5
-
-env:
-  - pipenv
-
+  - 3.5.6
 install:
   - pipenv install
+script: py.test --cov=tests
 
+deploy:
+  provider: openshift
+  user: lwando92
+  password: L!kh@ny312
+  app: flaskapplication
+  domain: https://192.168.99.100:8443/console
+  on: auth
 
-script:
+  
+  
 
- - py.test --cov=tests
