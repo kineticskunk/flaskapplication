@@ -15,12 +15,11 @@ script:
 
  - py.test --cov=tests
 
-
-# notifications:
-#   email:
-#     - xolani@kineticskunk.com
 deploy:
   provider: openshift
-  domain:
-  on: sivu
-  app: flaskapplication
+  domain: http://www.flaskapplication.com/
+  on: 
+   branch: master
+    repo: flaskapplication
+  app: 
+    master: flaskapplication
