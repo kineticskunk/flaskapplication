@@ -24,7 +24,7 @@ deploy:
     all_branches: true
   provider: minishift
   user: "developer"
-  password: "12345" # can be encrypted
+  # password: "12345" # can be encrypted
   domain: "https://192.168.99.100:8443/console/catalog"
   app:flaskapplication
 
