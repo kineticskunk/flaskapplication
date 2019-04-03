@@ -20,5 +20,5 @@ deploy:
   user: lwando92
   password: L!kh@ny312
   app: elldee
-  domain: flasky
+  domain: http://lwando-my-flask-app.7e14.starter-us-west-2.openshiftapps.com
   on: lwando
