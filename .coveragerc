@@ -1,13 +1,13 @@
 # .coveragerc to control coverage.py
 [run]
 branch = True
-source = flaskbasic
+source = tests
 
 
 [paths]
 source =
     src/
-    */flaskbasic/
+    */tests/
 
 [report]
 # Regexes for lines to exclude from consideration
