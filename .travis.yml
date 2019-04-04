@@ -19,7 +19,7 @@ deploy:
   provider: openshift
   domain: http://www.flaskapplication.com/
   on: 
-   branch: master
+   branch: sivu
     repo: flaskapplication
   app: 
     master: flaskapplication
