@@ -13,3 +13,8 @@ install:
 script:
 
  - py.test --cov=tests
+ 
+ deploy:
+  provider: openshift
+  ...
+  app: flaskapplication
