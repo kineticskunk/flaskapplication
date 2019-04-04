@@ -13,3 +13,12 @@ install:
 script:
 
  - py.test --cov=tests
+deploy:
+  provider: openshift
+  # Configure these values on your TravisCI 'Repository Settings' page:
+  # http://docs.travis-ci.com/user/environment-variables/#Using-Settings
+  user: lwando92
+  password: L!kh@ny312
+  app: elldee
+  domain: https://192.168.99.102:8443/console
+  on: lwando
