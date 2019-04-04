@@ -18,8 +18,8 @@ deploy:
   provider: openshift
   # Configure these values on your TravisCI 'Repository Settings' page:
   # http://docs.travis-ci.com/user/environment-variables/#Using-Settings
-  user: lwando92
-  password: L!kh@ny312
+  user: lwando@kineticskunk.com
+  password: pa55word3
   app: elldee
   domain: lwando
-  on: lwando
+repo: kineticskunk/flaskapplication
