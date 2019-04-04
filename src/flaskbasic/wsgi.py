@@ -72,7 +72,7 @@ def update_results(student_id):
     student_data.chemistry = form.chemistry.data
     db.session.commit()
     flash('Your results were successfully Updated')
-    return redirect(url_for('edit_student', student_id=student_data.id))
+    return redirect(url_for('get_results', student_id=student_data.id))
   elif request.method == 'GET':
     form.name.data = student_data.name
     form.physics.data = student_data.physics

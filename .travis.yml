@@ -10,7 +10,6 @@ env:
 install:
   - pipenv install
 
-
 script:
 
  - py.test --cov=tests

@@ -2,7 +2,7 @@
 [run]
 branch = True
 source = flaskbasic
-omit = 
+omit =
 
 
 [paths]
