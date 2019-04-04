@@ -21,7 +21,7 @@ deploy:
   user: lwando@kineticskunk.com
   password: pa55word3
   app: elldee
-  domainon: lwando: 
+  domain: lwando
   on: lwando
   
 repo: kineticskunk/flaskapplication
