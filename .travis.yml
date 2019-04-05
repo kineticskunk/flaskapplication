@@ -14,11 +14,11 @@ script:
 
  - py.test --cov=tests
 
-deploy:
-  provider: openshift
-  user: ludwej
-  password: 123
-  app: flaskapplication
-  domain: https://192.168.99.100:8443
-  target-branch: ludwe
+# deploy:
+#   provider: openshift
+#   user: ludwej
+#   password: 123
+#   app: flaskapplication
+#   domain: https://192.168.99.100:8443
+#   target-branch: ludwe
   
