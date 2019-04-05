@@ -20,5 +20,6 @@ deploy:
   user: developer
   password: tshula19
   domain: http://flaskapplication-flask-app.192.168.99.103.nip.io/
+  skip_cleanup: true
 on:
-  branch: Sivu
+  all_branches: true
