@@ -15,11 +15,10 @@ script:
 
  - py.test --cov=tests
 
-# deploy:
-#   provider: openshift
-#   domain: 
-#   on: 
-#    branch: sivu
-#     repo: flaskapplication
-#   app: 
-#     master: flaskapplication
+deploy:
+  provider: openshift
+  user: developer
+  password: tshula19
+  domain: http://flaskapplication-flask-app.192.168.99.103.nip.io/
+on:
+  branch: Sivu
