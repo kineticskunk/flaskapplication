@@ -19,7 +19,9 @@ Jinja2 = "*"
 MarkupSafe = "*"
 Flask-SQLAlchemy = "*"
 Werkzeug = "*"
-mock = "*"
+pytest-cov = "*"
+coverage = "*"
+pytest-html = "*"
 
 [requires]
 python_version = "3.7"
