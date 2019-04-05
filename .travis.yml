@@ -20,4 +20,5 @@ deploy:
   password: 123
   app: flaskapplication
   domain: https://192.168.99.100:8443
-  on: ludwe
+  target-branch: ludwe
+  
