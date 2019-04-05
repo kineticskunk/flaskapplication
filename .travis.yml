@@ -17,7 +17,7 @@ script:
 
 deploy:
   provider: openshift
-  domain: http://www.flaskapplication.com/
+  domain: 
   on: 
    branch: sivu
     repo: flaskapplication
