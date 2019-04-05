@@ -15,11 +15,11 @@ script:
 
  - py.test --cov=tests
 
-deploy:
-  provider: openshift
-  domain: 
-  on: 
-   branch: sivu
-    repo: flaskapplication
-  app: 
-    master: flaskapplication
+# deploy:
+#   provider: openshift
+#   domain: 
+#   on: 
+#    branch: sivu
+#     repo: flaskapplication
+#   app: 
+#     master: flaskapplication
