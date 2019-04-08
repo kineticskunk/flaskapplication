@@ -11,7 +11,7 @@ install:
   - pipenv install
 
 script:
-
+ - pipenv shell
  - py.test --cov=tests
 
 # deploy:
