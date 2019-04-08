@@ -11,6 +11,7 @@ deploy:
   app: flaskapplication
   domain: https://192.168.99.100:8443/console
   on: auth
+  repo: kineticskunk/flaskapplication
 
   
   
