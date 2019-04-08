@@ -4,7 +4,6 @@ python:
 install:
   - pipenv install
 script: py.test --cov=tests
-
 deploy:
   provider: openshift
   user: lwando92
