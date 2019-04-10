@@ -1,1 +1,1 @@
-web: gunicorn src.flaskbasic.wsgi --log-file -
+web: src.flaskbasic.wsgi --log-file -
