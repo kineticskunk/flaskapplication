@@ -13,11 +13,14 @@ install:
 script:
  - py.test --cov=tests
 
-# deploy:
-#   provider: openshift
-#   user: ludwej
-#   password: 123
-#   app: flaskapplication
-#   domain: https://192.168.99.100:8443
-#   target-branch: ludwe
-  
+deploy:
+  provider: openshift
+  # Configure these values on your TravisCI 'Repository Settings' page:
+  # http://docs.travis-ci.com/user/environment-variables/#Using-Settings
+  user: lwando@kineticskunk.com
+  password: pa55word3
+  app: elldee
+  domain: https://192.168.99.102:8443/console
+  on: lwando
+
+repo: kineticskunk/flaskapplication
