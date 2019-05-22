@@ -32,3 +32,4 @@ Werkzeug
 wheel
 pytest
 flask-sqlalchemy
+uwsgi
