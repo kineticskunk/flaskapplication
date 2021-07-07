@@ -68,7 +68,7 @@ def test_student_chemistry(new_student):
         assert isinstance(new_student.get_chemistry(), int)
         assert not isinstance(new_student.get_chemistry(), str)
         assert new_student.get_chemistry() == 51
-# 
+#
 # def test_new_user(new_user):
 #     """
 #     GIVEN a User model
